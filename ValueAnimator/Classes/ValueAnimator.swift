@@ -33,6 +33,7 @@ public class ValueAnimator: Hashable {
     
     public typealias EndFunction = () -> Void
     public typealias ChangeFunction = (String, Double) -> Void
+    public typealias Second = Double
     
     private lazy var objectIdentifier = ObjectIdentifier(self)
     private var props = [String]()
@@ -41,7 +42,7 @@ public class ValueAnimator: Hashable {
     private var initials = [String: Double]()
     private var changes = [String: Double]()
     /// second
-    private var duration = TimeInterval(1)
+    private var duration = TimeInterval(1000)
     private var easing: EasingFunction = EaseLinear.easeInOut
     
     /// seconds in corvered on timeline
@@ -104,12 +105,14 @@ public class ValueAnimator: Hashable {
         aniList.removeAll()
     }
     
-    static public func of(_ prop: String, from: Double, to: Double, duration: TimeInterval, onChanged: @escaping ChangeFunction) -> ValueAnimator {
-        let ani = animateCore(props: [prop], from: [from], to: [to], changeFunction: onChanged,
-                              duration: duration)
+    static public func of(_ prop: String, from: Double, to: Double, duration: Second, onChanged: @escaping ChangeFunction) -> ValueAnimator {
+        let ani = animateCore(props: [prop], from: [from], to: [to], changeFunction: onChanged, duration: duration)
         aniList.insert(ani)
         if debug {
-            print("aniList added id: \(ani.hashValue)")
+            print("ValueAnimator -----------: aniList added id: \(ani.hashValue)")
+            if let render = renderer {
+                print("render.isFinished -----------: \(render.isFinished)")
+            }
         }
         // TODO start runLoop if not running
         if renderer == nil || renderer?.isFinished == true {
@@ -125,8 +128,8 @@ public class ValueAnimator: Hashable {
                                     from: [Double],
                                     to: [Double],
                                     changeFunction: @escaping ChangeFunction,
-                                    duration: TimeInterval = 1,
-                                    easing: @escaping EasingFunction = EaseCircular.easeOut,
+                                    duration: Second = 1,
+                                    easing: @escaping EasingFunction = EaseLinear.easeOut,
                                     endFunction: EndFunction? = nil,
                                     option: Option? = nil) -> ValueAnimator {
         let ani = ValueAnimator()
@@ -147,6 +150,7 @@ public class ValueAnimator: Hashable {
             ani.repeatCount *= 2
         }
         ani.changeFunction = changeFunction
+        ani.startMillis = Date().timeIntervalSince1970
         
         return ani
     }
@@ -154,17 +158,19 @@ public class ValueAnimator: Hashable {
     @objc
     static private func onProgress() {
         while aniList.count > 0 {
-            print("onProgress Thread.isMainThread: \(Thread.isMainThread)")
             for ani in aniList {
                 update(ani)
             }
-            Thread.sleep(forTimeInterval: 1)
+            Thread.sleep(forTimeInterval: 0.01)
+            if Thread.main.isFinished {
+                print("ValueAnimator is finished because main thread is finished")
+                Thread.exit()
+            }
         }
         if debug {
-            print("nothing to animate")
-            print("renderer?.isFinished: \(renderer?.isFinished ?? false)")
+            print("ValueAnimator nothing to animate")
         }
-        
+        Thread.exit()
     }
     
     static private func update(_ ani: ValueAnimator) {
@@ -178,7 +184,7 @@ public class ValueAnimator: Hashable {
         }
         nowMillis = Date().timeIntervalSince1970
         if !ani.isAnimating {
-            ani.startMillis = nowMillis - ani.corvered * 1000
+            ani.startMillis = nowMillis - ani.corvered * 1000.0
             return
         }
         if ani.delay > 0 {
@@ -187,7 +193,8 @@ public class ValueAnimator: Hashable {
             return
         }
         // 시간 계산
-        ani.corvered = (nowMillis - ani.startMillis) * 0.001
+        ani.corvered = nowMillis - ani.startMillis
+        // repeating
         if ani.corvered >= ani.duration {
             if ani.yoyo {
                 if ani.repeatCount <= 0 || ani.repeatCount > ani.count {
@@ -243,10 +250,4 @@ public class ValueAnimator: Hashable {
         aniList.remove(ani)
         ani.isFinished = true
     }
-    
-    
-    
-    
-    
-    
 }
