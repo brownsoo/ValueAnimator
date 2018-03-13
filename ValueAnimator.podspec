@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'ValueAnimator'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of ValueAnimator.'
+  s.summary          = 'ValueAnimator makes we can get updates of value transition.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+ValueAnimator makes value trainsition using various tween functions.
                        DESC
 
   s.homepage         = 'https://github.com/brownsoo/ValueAnimator'
@@ -26,17 +26,10 @@ TODO: Add long description of the pod here.
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'brownsoo' => 'hyonsoo.han@tlx.co.kr' }
   s.source           = { :git => 'https://github.com/brownsoo/ValueAnimator.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+# s.social_media_url = 'https://twitter.com/hansoolabs'
 
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'ValueAnimator/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'ValueAnimator' => ['ValueAnimator/Assets/*.png']
-  # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end

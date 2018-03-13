@@ -4,47 +4,42 @@ import Quick
 import Nimble
 import ValueAnimator
 
-class TableOfContentsSpec: QuickSpec {
+
+class ValueAnimatorSpec: QuickSpec {
     override func spec() {
-        describe("these will fail") {
-
-            it("can do maths") {
-                expect(1) == 2
-            }
-
-            it("can read") {
-                expect("number") == "string"
-            }
-
-            it("will eventually fail") {
-                expect("time").toEventually( equal("done") )
+        describe("animator spec") {
+            describe("its end value") {
+                
+                var count: Double!
+                var ani: ValueAnimator!
+                beforeEach {
+                    count = Double(0)
+                    ani = ValueAnimator.of("count", from: 0, to: 10, duration: 1) { prop, value in
+                        print(prop, value)
+                        count = value
+                    }
+                }
+                context("isAnimating value") {
+                    it("is not animating") {
+                        expect(ani.isAnimating).to(beFalsy())
+                    }
+                    it("is animating") {
+                        ani.resume()
+                        expect(ani.isAnimating).to(beTruthy())
+                    }
+                }
+                
+//
+//                waitUntil { done in
+//                    Thread.sleep(forTimeInterval: 1.1)
+//                    expect(count) == 10
+//                    done()
+//                }
             }
             
-            context("these will pass") {
-
-                it("can do maths") {
-                    expect(23) == 23
-                }
-
-                it("can read") {
-                    expect("🐮") == "🐮"
-                }
-
-                it("will eventually pass") {
-                    var time = "passing"
-
-                    DispatchQueue.main.async {
-                        time = "done"
-                    }
-
-                    waitUntil { done in
-                        Thread.sleep(forTimeInterval: 0.5)
-                        expect(time) == "done"
-
-                        done()
-                    }
-                }
-            }
+            
+            
         }
     }
 }
+

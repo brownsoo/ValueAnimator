@@ -1,0 +1,6 @@
+framework module Pods_ValueAnimator_Example {
+  umbrella header "Pods-ValueAnimator_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
