@@ -20,6 +20,15 @@
 		176B394320589F7F00F0DF06 /* EaseLinear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B393D20589F7F00F0DF06 /* EaseLinear.swift */; };
 		176B394E2058A8C700F0DF06 /* SwiftLintIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B394D2058A8C700F0DF06 /* SwiftLintIntegration.swift */; };
 		176B39542058A94D00F0DF06 /* ValueAnimator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 176B391C20589EB100F0DF06 /* ValueAnimator.framework */; };
+		176B395E205B936300F0DF06 /* EaseBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B3955205B936200F0DF06 /* EaseBack.swift */; };
+		176B395F205B936300F0DF06 /* EaseElastic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B3956205B936200F0DF06 /* EaseElastic.swift */; };
+		176B3960205B936300F0DF06 /* EaseSine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B3957205B936200F0DF06 /* EaseSine.swift */; };
+		176B3961205B936300F0DF06 /* EaseBounce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B3958205B936200F0DF06 /* EaseBounce.swift */; };
+		176B3962205B936300F0DF06 /* EaseCubic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B3959205B936200F0DF06 /* EaseCubic.swift */; };
+		176B3963205B936300F0DF06 /* EaseQuadratic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B395A205B936200F0DF06 /* EaseQuadratic.swift */; };
+		176B3964205B936300F0DF06 /* EaseExponential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B395B205B936200F0DF06 /* EaseExponential.swift */; };
+		176B3965205B936300F0DF06 /* EaseQuartic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B395C205B936200F0DF06 /* EaseQuartic.swift */; };
+		176B3966205B936300F0DF06 /* EaseStrong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B395D205B936200F0DF06 /* EaseStrong.swift */; };
 		E1B5ECD307B6EDC2D11785E0 /* libPods-SwiftLintIntegration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1C32A61291AC61A7828206F /* libPods-SwiftLintIntegration.a */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +56,15 @@
 		176B394B2058A8C700F0DF06 /* SwiftLintIntegration.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftLintIntegration.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		176B394D2058A8C700F0DF06 /* SwiftLintIntegration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftLintIntegration.swift; sourceTree = "<group>"; };
 		176B394F2058A8C700F0DF06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		176B3955205B936200F0DF06 /* EaseBack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EaseBack.swift; sourceTree = "<group>"; };
+		176B3956205B936200F0DF06 /* EaseElastic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EaseElastic.swift; sourceTree = "<group>"; };
+		176B3957205B936200F0DF06 /* EaseSine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EaseSine.swift; sourceTree = "<group>"; };
+		176B3958205B936200F0DF06 /* EaseBounce.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EaseBounce.swift; sourceTree = "<group>"; };
+		176B3959205B936200F0DF06 /* EaseCubic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EaseCubic.swift; sourceTree = "<group>"; };
+		176B395A205B936200F0DF06 /* EaseQuadratic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EaseQuadratic.swift; sourceTree = "<group>"; };
+		176B395B205B936200F0DF06 /* EaseExponential.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EaseExponential.swift; sourceTree = "<group>"; };
+		176B395C205B936200F0DF06 /* EaseQuartic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EaseQuartic.swift; sourceTree = "<group>"; };
+		176B395D205B936200F0DF06 /* EaseStrong.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EaseStrong.swift; sourceTree = "<group>"; };
 		7607BED149B5FE7E4DCB2A28 /* Pods-SwiftLintIntegration.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftLintIntegration.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftLintIntegration/Pods-SwiftLintIntegration.debug.xcconfig"; sourceTree = "<group>"; };
 		D1C32A61291AC61A7828206F /* libPods-SwiftLintIntegration.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwiftLintIntegration.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD597FF115D5741B2B2BA70A /* Pods-SwiftLintIntegration.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftLintIntegration.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftLintIntegration/Pods-SwiftLintIntegration.release.xcconfig"; sourceTree = "<group>"; };
@@ -142,6 +160,15 @@
 		176B393A20589F6900F0DF06 /* Easing */ = {
 			isa = PBXGroup;
 			children = (
+				176B3955205B936200F0DF06 /* EaseBack.swift */,
+				176B3958205B936200F0DF06 /* EaseBounce.swift */,
+				176B3959205B936200F0DF06 /* EaseCubic.swift */,
+				176B3956205B936200F0DF06 /* EaseElastic.swift */,
+				176B395B205B936200F0DF06 /* EaseExponential.swift */,
+				176B395A205B936200F0DF06 /* EaseQuadratic.swift */,
+				176B395C205B936200F0DF06 /* EaseQuartic.swift */,
+				176B3957205B936200F0DF06 /* EaseSine.swift */,
+				176B395D205B936200F0DF06 /* EaseStrong.swift */,
 				176B393B20589F7F00F0DF06 /* EaseCircular.swift */,
 				176B393D20589F7F00F0DF06 /* EaseLinear.swift */,
 				176B393C20589F7F00F0DF06 /* Easing.swift */,
@@ -360,9 +387,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				176B3966205B936300F0DF06 /* EaseStrong.swift in Sources */,
+				176B395E205B936300F0DF06 /* EaseBack.swift in Sources */,
 				176B394220589F7F00F0DF06 /* EaseLinear.swift in Sources */,
+				176B3962205B936300F0DF06 /* EaseCubic.swift in Sources */,
+				176B3965205B936300F0DF06 /* EaseQuartic.swift in Sources */,
 				176B393E20589F7F00F0DF06 /* EaseCircular.swift in Sources */,
+				176B395F205B936300F0DF06 /* EaseElastic.swift in Sources */,
 				176B393820589F5800F0DF06 /* ValueAnimator.swift in Sources */,
+				176B3963205B936300F0DF06 /* EaseQuadratic.swift in Sources */,
+				176B3961205B936300F0DF06 /* EaseBounce.swift in Sources */,
+				176B3960205B936300F0DF06 /* EaseSine.swift in Sources */,
+				176B3964205B936300F0DF06 /* EaseExponential.swift in Sources */,
 				176B394020589F7F00F0DF06 /* Easing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

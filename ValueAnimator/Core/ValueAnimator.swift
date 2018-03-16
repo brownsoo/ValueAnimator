@@ -5,107 +5,122 @@
 import Foundation
 
 public class ValueAnimator: Hashable {
-    
+
     public struct Option {
         let yoyo: Bool
         let repeatCount: Int
         let delay: TimeInterval
-        
+
         public class Builder {
             var yoyo: Bool = false
             var repeatCount: Int = 0
             var delay: TimeInterval = 0
-            
+
             public func setYoyo(v: Bool) {
                 yoyo = v
             }
+
             public func setRepeatCount(v: Int) {
                 repeatCount = v
             }
+
             public func setDelay(v: TimeInterval) {
                 delay = v
             }
+
             public func build() -> Option {
                 return Option(yoyo: yoyo, repeatCount: repeatCount, delay: delay)
             }
         }
     }
-    
+
+    public typealias EaseFunction = (_ t: Double, _ b: Double, _ c: Double, _ d: Double) -> Double
     public typealias EndFunction = () -> Void
     public typealias ChangeFunction = (String, Double) -> Void
-    public typealias Second = Double
-    
+
     private lazy var objectIdentifier = ObjectIdentifier(self)
     private var props = [String]()
-    /// millisecond
-    private var startMillis: TimeInterval = 0
+    private var startTime: TimeInterval = 0
     private var initials = [String: Double]()
     private var changes = [String: Double]()
-    /// second
-    private var duration = TimeInterval(1000)
-    private var easing: EasingFunction = EaseLinear.easeInOut
-    
-    /// seconds in corvered on timeline
-    private var corvered: TimeInterval = 0 // second
+    private var duration: TimeInterval = 1
+    private var easing: EaseFunction!
+
+    /// seconds in covered on timeline
+    private var covered: TimeInterval = 0
     /// seconds to delay
-    private var delay: TimeInterval = 0  // second
+    private var delay: TimeInterval = 0
     /// yoyo animation
     public private(set) var yoyo = false
     /// how many it repeat animation.
     public private(set) var repeatCount: Int = 0
     /// animated count
-    public private(set) var count: Int = 0
+    public private(set) var counted: Int = 0
     public private(set) var isAnimating = false
     public private(set) var isFinished = false
     public private(set) var isDisposed = false
-    
+
     /// callback for animation updates
-    public var changeFunction: ChangeFunction = { prop, value in print("default changeFunction \(prop): \(value)")}
+    public var changeFunction: ChangeFunction? = nil
     /// callback for animation finishes
     public var endFunction: EndFunction? = nil
-    
+
     public var hashValue: Int {
         return self.objectIdentifier.hashValue
     }
+
     public static func ==(left: ValueAnimator, right: ValueAnimator) -> Bool {
         return left.objectIdentifier == right.objectIdentifier
     }
-    
+
     private init() {
     }
-    
+
     public func resume() {
         isAnimating = true
     }
-    
+
     public func pause() {
         isAnimating = false
     }
-    
+
     public func finish() {
         isFinished = true
     }
+
     public func dispose() {
         isDisposed = true
     }
-    
-    
+
+
     // MARK: class values
-    
+
     static public var debug = false
-    static private var aniList = Set<ValueAnimator>()
-    static private var nowMillis: TimeInterval = 0
-    static private var renderer: Thread? = nil
-    
-    static public func finishAll() {
-        aniList.forEach { $0.finish() }
+    static public var frameRate: Int = 50 {
+        didSet {
+            sleepTime = 1 / Double(frameRate)
+        }
     }
-    
+    static private var nowTime: TimeInterval = 0
+    static private var renderer: Thread? = nil
+    static private var aniList = Set<ValueAnimator>()
+    static private var sleepTime: TimeInterval = 0.02
+
+    static public func finishAll() {
+        aniList.forEach {
+            $0.finish()
+        }
+    }
+
     static public func disposeAll() {
         aniList.removeAll()
     }
-    
-    static public func of(_ prop: String, from: Double, to: Double, duration: Second, onChanged: @escaping ChangeFunction) -> ValueAnimator {
+
+    static public func of(_ prop: String,
+                          from: Double,
+                          to: Double,
+                          duration: TimeInterval,
+                          onChanged: ChangeFunction? = nil) -> ValueAnimator {
         let ani = animateCore(props: [prop], from: [from], to: [to], changeFunction: onChanged, duration: duration)
         aniList.insert(ani)
         if debug {
@@ -114,7 +129,7 @@ public class ValueAnimator: Hashable {
                 print("render.isFinished -----------: \(render.isFinished)")
             }
         }
-        // TODO start runLoop if not running
+        // start runLoop if not running
         if renderer == nil || renderer?.isFinished == true {
             renderer = Thread(target: self, selector: #selector(onProgress), object: nil)
             renderer?.name = "renderer"
@@ -123,13 +138,13 @@ public class ValueAnimator: Hashable {
         }
         return ani
     }
-    
+
     static private func animateCore(props: [String],
                                     from: [Double],
                                     to: [Double],
-                                    changeFunction: @escaping ChangeFunction,
-                                    duration: Second = 1,
-                                    easing: @escaping EasingFunction = EaseLinear.easeOut,
+                                    changeFunction: ChangeFunction?,
+                                    duration: TimeInterval = 1,
+                                    easing: @escaping EaseFunction = EaseLinear().easeNone,
                                     endFunction: EndFunction? = nil,
                                     option: Option? = nil) -> ValueAnimator {
         let ani = ValueAnimator()
@@ -150,18 +165,18 @@ public class ValueAnimator: Hashable {
             ani.repeatCount *= 2
         }
         ani.changeFunction = changeFunction
-        ani.startMillis = Date().timeIntervalSince1970
-        
+        ani.startTime = Date().timeIntervalSince1970
+
         return ani
     }
-    
+
     @objc
     static private func onProgress() {
         while aniList.count > 0 {
             for ani in aniList {
                 update(ani)
             }
-            Thread.sleep(forTimeInterval: 0.01)
+            Thread.sleep(forTimeInterval: sleepTime)
             if Thread.main.isFinished {
                 print("ValueAnimator is finished because main thread is finished")
                 Thread.exit()
@@ -172,7 +187,7 @@ public class ValueAnimator: Hashable {
         }
         Thread.exit()
     }
-    
+
     static private func update(_ ani: ValueAnimator) {
         if ani.isDisposed {
             dispose(ani)
@@ -182,69 +197,70 @@ public class ValueAnimator: Hashable {
             finish(ani)
             return
         }
-        nowMillis = Date().timeIntervalSince1970
+        nowTime = Date().timeIntervalSince1970
         if !ani.isAnimating {
-            ani.startMillis = nowMillis - ani.corvered * 1000.0
+            ani.startTime = nowTime - ani.covered * 1000.0
             return
         }
         if ani.delay > 0 {
-            ani.delay -= (nowMillis - ani.startMillis)
-            ani.startMillis = nowMillis
+            ani.delay -= (nowTime - ani.startTime)
+            ani.startTime = nowTime
             return
         }
         // 시간 계산
-        ani.corvered = nowMillis - ani.startMillis
+        ani.covered = nowTime - ani.startTime
         // repeating
-        if ani.corvered >= ani.duration {
+        if ani.covered >= ani.duration {
             if ani.yoyo {
-                if ani.repeatCount <= 0 || ani.repeatCount > ani.count {
+                if ani.repeatCount <= 0 || ani.repeatCount > ani.counted {
                     for p in ani.props {
                         if let initial = ani.initials[p],
-                            let change = ani.changes[p] {
-                            ani.changeFunction(p, initial + change)
-                            ani.initials[p]! += change
+                           let change = ani.changes[p] {
+                            let changed = initial + change
+                            ani.changeFunction?(p, changed)
+                            ani.initials[p] = changed
                             ani.changes[p]! *= -1
                         }
                     }
-                    ani.startMillis = nowMillis
-                    ani.count += 1
+                    ani.startTime = nowTime
+                    ani.counted += 1
                     return
                 }
             }
-            if ani.count < ani.repeatCount {
+            if ani.counted < ani.repeatCount {
                 for p in ani.props {
-                    if let initial = ani.initials[p]{
-                        ani.changeFunction(p, initial)
+                    if let initial = ani.initials[p] {
+                        ani.changeFunction?(p, initial)
                     }
                 }
-                ani.startMillis = nowMillis
-                ani.count += 1
+                ani.startTime = nowTime
+                ani.counted += 1
                 return
             }
-            
+
             finish(ani)
         } else {
             // call updates in progress
             for p in ani.props {
-                ani.changeFunction(p, ani.easing(ani.corvered, ani.initials[p]!, ani.changes[p]!, ani.duration))
+                ani.changeFunction?(p, ani.easing(ani.covered, ani.initials[p]!, ani.changes[p]!, ani.duration))
             }
         }
     }
-    
-    
+
+
     /// finish animation and update value with target
     static private func finish(_ ani: ValueAnimator) {
         aniList.remove(ani)
         for p in ani.props {
             if let initial = ani.initials[p],
-                let change = ani.changes[p] {
-                ani.changeFunction(p, initial + change)
+               let change = ani.changes[p] {
+                ani.changeFunction?(p, initial + change)
             }
         }
         ani.isFinished = true
         ani.endFunction?()
     }
-    
+
     /// finish animation during animation
     static private func dispose(_ ani: ValueAnimator) {
         aniList.remove(ani)

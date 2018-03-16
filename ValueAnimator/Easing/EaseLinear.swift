@@ -1,8 +1,12 @@
 // 
 // Created by brownsoo han on 2018. 3. 12..
-//
+// from Adobe flash easing package
 
 public class EaseLinear {
+    
+    init() {
+    }
+    
     /// The easeNone method defines a constant motion with no acceleration.
     ///
     /// - Parameters:
@@ -10,8 +14,9 @@ public class EaseLinear {
     ///   - b: Specifies  the initial value of the animation property.
     ///   - c: Specifies the total change in the animation property.animation
     ///   - d: Specifies the duration of the motion.
+    ///
     /// - Returns: The value of the interpolated property at the specified time.
-    static func easeNone(t: Double, b: Double, c: Double, d: Double) -> Double {
+    public func easeNone(t: Double, b: Double, c: Double, d: Double) -> Double {
         return c * t / d + b
     }
     
@@ -22,8 +27,9 @@ public class EaseLinear {
     ///   - b: Specifies  the initial value of the animation property.
     ///   - c: Specifies the total change in the animation property.animation
     ///   - d: Specifies the duration of the motion.
+    ///
     /// - Returns: The value of the interpolated property at the specified time.
-    static func easeIn(t: Double, b: Double, c: Double, d: Double) -> Double {
+    public func easeIn(t: Double, b: Double, c: Double, d: Double) -> Double {
         return c * t / d + b
     }
     /// The easeOut method defines a constant motion with no acceleration.
@@ -34,7 +40,7 @@ public class EaseLinear {
     ///   - c: Specifies the total change in the animation property.animation
     ///   - d: Specifies the duration of the motion.
     /// - Returns: The value of the interpolated property at the specified time.
-    static func easeOut(t: Double, b: Double, c: Double, d: Double) -> Double {
+    public func easeOut(t: Double, b: Double, c: Double, d: Double) -> Double {
         return c * t / d + b
     }
     /// The easeNone method defines a constant motion with no acceleration.
@@ -44,8 +50,9 @@ public class EaseLinear {
     ///   - b: Specifies  the initial value of the animation property.
     ///   - c: Specifies the total change in the animation property.animation
     ///   - d: Specifies the duration of the motion.
+    ///
     /// - Returns: The value of the interpolated property at the specified time.
-    static func easeInOut(t: Double, b: Double, c: Double, d: Double) -> Double {
+    public func easeInOut(t: Double, b: Double, c: Double, d: Double) -> Double {
         return c * t / d + b
     }
 }
