@@ -10,27 +10,33 @@ public class ValueAnimator: Hashable {
         let yoyo: Bool
         let repeatCount: Int
         let delay: TimeInterval
+    }
 
-        public class Builder {
-            var yoyo: Bool = false
-            var repeatCount: Int = 0
-            var delay: TimeInterval = 0
+    public class OptionBuilder {
+        var yoyo: Bool = false
+        var repeatCount: Int = 0
+        var delay: TimeInterval = 0
 
-            public func setYoyo(v: Bool) {
-                yoyo = v
-            }
+        public init() {
+        }
 
-            public func setRepeatCount(v: Int) {
-                repeatCount = v
-            }
+        public func setYoyo(_ v: Bool) -> OptionBuilder {
+            yoyo = v
+            return self
+        }
 
-            public func setDelay(v: TimeInterval) {
-                delay = v
-            }
+        public func setRepeatCount(_ v: Int) -> OptionBuilder {
+            repeatCount = v
+            return self
+        }
 
-            public func build() -> Option {
-                return Option(yoyo: yoyo, repeatCount: repeatCount, delay: delay)
-            }
+        public func setDelay(_ v: TimeInterval) -> OptionBuilder {
+            delay = v
+            return self
+        }
+
+        public func build() -> Option {
+            return Option(yoyo: yoyo, repeatCount: repeatCount, delay: delay)
         }
     }
 
@@ -120,33 +126,30 @@ public class ValueAnimator: Hashable {
                           from: Double,
                           to: Double,
                           duration: TimeInterval,
-                          onChanged: ChangeFunction? = nil) -> ValueAnimator {
-        let ani = animateCore(props: [prop], from: [from], to: [to], changeFunction: onChanged, duration: duration)
-        aniList.insert(ani)
-        if debug {
-            print("ValueAnimator -----------: aniList added id: \(ani.hashValue)")
-            if let render = renderer {
-                print("render.isFinished -----------: \(render.isFinished)")
-            }
-        }
-        // start runLoop if not running
-        if renderer == nil || renderer?.isFinished == true {
-            renderer = Thread(target: self, selector: #selector(onProgress), object: nil)
-            renderer?.name = "renderer"
-            renderer?.qualityOfService = .default
-            renderer?.start()
-        }
-        return ani
+                          changeFunction: ChangeFunction? = nil) -> ValueAnimator {
+        return animate(props: [prop], from: [from], to: [to], duration: duration,
+            easing: EaseSine.easeOut, option: nil, changeFunction: changeFunction)
     }
 
-    static private func animateCore(props: [String],
-                                    from: [Double],
-                                    to: [Double],
-                                    changeFunction: ChangeFunction?,
-                                    duration: TimeInterval = 1,
-                                    easing: @escaping EaseFunction = EaseLinear().easeNone,
-                                    endFunction: EndFunction? = nil,
-                                    option: Option? = nil) -> ValueAnimator {
+    static public func animate(prop: String,
+                               from: Double,
+                               to: Double,
+                               duration: TimeInterval,
+                               easing: @escaping EaseFunction,
+                               option: Option,
+                               changeFunction: ChangeFunction? = nil) -> ValueAnimator {
+        return animate(props: [prop], from: [from], to: [to], duration: duration,
+            easing: easing, option: nil, changeFunction: changeFunction)
+    }
+
+    static public func animate(props: [String],
+                               from: [Double],
+                               to: [Double],
+                               duration: TimeInterval,
+                               easing: @escaping EaseFunction,
+                               option: Option? = nil,
+                               changeFunction: ChangeFunction? = nil,
+                               endFunction: EndFunction? = nil) -> ValueAnimator {
         let ani = ValueAnimator()
         ani.props = props
         for (i, p) in props.enumerated() {
@@ -166,6 +169,22 @@ public class ValueAnimator: Hashable {
         }
         ani.changeFunction = changeFunction
         ani.startTime = Date().timeIntervalSince1970
+
+
+        aniList.insert(ani)
+        if debug {
+            print("ValueAnimator -----------: aniList added id: \(ani.hashValue)")
+            if let render = renderer {
+                print("render.isFinished -----------: \(render.isFinished)")
+            }
+        }
+        // start runLoop if not running
+        if renderer == nil || renderer?.isFinished == true {
+            renderer = Thread(target: self, selector: #selector(onProgress), object: nil)
+            renderer?.name = "renderer"
+            renderer?.qualityOfService = .default
+            renderer?.start()
+        }
 
         return ani
     }
