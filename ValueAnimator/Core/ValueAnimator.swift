@@ -10,12 +10,14 @@ public class ValueAnimator: Hashable {
         let yoyo: Bool
         let repeatCount: Int
         let delay: TimeInterval
+        let repeatInfinitely: Bool
     }
 
     public class OptionBuilder {
         var yoyo: Bool = false
         var repeatCount: Int = 0
         var delay: TimeInterval = 0
+        var repeatInfinitely: Bool = false
 
         public init() {
         }
@@ -35,8 +37,13 @@ public class ValueAnimator: Hashable {
             return self
         }
 
+        public func setRepeatInfinitely(_ b: Bool) -> OptionBuilder {
+            repeatInfinitely = b
+            return self
+        }
+
         public func build() -> Option {
-            return Option(yoyo: yoyo, repeatCount: repeatCount, delay: delay)
+            return Option(yoyo: yoyo, repeatCount: repeatCount, delay: delay, repeatInfinitely: repeatInfinitely)
         }
     }
 
@@ -60,7 +67,16 @@ public class ValueAnimator: Hashable {
     /// how many it repeat animation.
     public private(set) var repeatCount: Int = 0
     /// animated count
-    public private(set) var counted: Int = 0
+    public private(set) var counted: Int = 0 {
+        didSet {
+        #if DEBUG
+            print("ValueAnimator--- counted: \(counted)")
+        #endif
+        }
+    }
+    /// whether if it repeat infinitely or not.
+    /// if true, animation ignores repeatCount
+    public private(set) var isInfinitely = false
     public private(set) var isAnimating = false
     public private(set) var isFinished = false
     public private(set) var isDisposed = false
@@ -121,16 +137,7 @@ public class ValueAnimator: Hashable {
         aniList.removeAll()
     }
 
-    static public func of(_ prop: String,
-                          from: Double,
-                          to: Double,
-                          duration: TimeInterval,
-                          changeFunction: ChangeFunction? = nil) -> ValueAnimator {
-        return animate(props: [prop], from: [from], to: [to], duration: duration,
-            onChanged: changeFunction, easing: EaseSine.easeOut())
-    }
-
-    static public func animate(prop: String,
+    static public func animate(_ prop: String,
                                from: Double,
                                to: Double,
                                duration: TimeInterval,
@@ -162,6 +169,7 @@ public class ValueAnimator: Hashable {
             ani.yoyo = option.yoyo
             ani.repeatCount = option.repeatCount
             ani.delay = option.delay
+            ani.isInfinitely = option.repeatInfinitely
         }
         if ani.yoyo && ani.repeatCount > 0 {
             ani.repeatCount *= 2
@@ -169,13 +177,9 @@ public class ValueAnimator: Hashable {
         ani.changeFunction = onChanged
         ani.startTime = Date().timeIntervalSince1970
 
-
         aniList.insert(ani)
         if debug {
             print("ValueAnimator -----------: aniList added id: \(ani.hashValue)")
-            if let render = renderer {
-                print("render.isFinished -----------: \(render.isFinished)")
-            }
         }
         // start runLoop if not running
         if renderer == nil || renderer?.isFinished == true {
@@ -230,7 +234,7 @@ public class ValueAnimator: Hashable {
         // repeating
         if ani.covered >= ani.duration {
             if ani.yoyo {
-                if ani.repeatCount <= 0 || ani.repeatCount > ani.counted {
+                if ani.repeatCount <= 0 || ani.repeatCount > ani.counted || ani.isInfinitely {
                     for p in ani.props {
                         if let initial = ani.initials[p],
                            let change = ani.changes[p] {
@@ -245,7 +249,7 @@ public class ValueAnimator: Hashable {
                     return
                 }
             }
-            if ani.counted < ani.repeatCount {
+            if ani.counted < ani.repeatCount || ani.isInfinitely {
                 for p in ani.props {
                     if let initial = ani.initials[p] {
                         ani.changeFunction?(p, initial)
