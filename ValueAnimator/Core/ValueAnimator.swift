@@ -40,7 +40,6 @@ public class ValueAnimator: Hashable {
         }
     }
 
-    public typealias EaseFunction = (_ t: Double, _ b: Double, _ c: Double, _ d: Double) -> Double
     public typealias EndFunction = () -> Void
     public typealias ChangeFunction = (String, Double) -> Void
 
@@ -50,7 +49,7 @@ public class ValueAnimator: Hashable {
     private var initials = [String: Double]()
     private var changes = [String: Double]()
     private var duration: TimeInterval = 1
-    private var easing: EaseFunction!
+    private var easing: Easing!
 
     /// seconds in covered on timeline
     private var covered: TimeInterval = 0
@@ -128,27 +127,27 @@ public class ValueAnimator: Hashable {
                           duration: TimeInterval,
                           changeFunction: ChangeFunction? = nil) -> ValueAnimator {
         return animate(props: [prop], from: [from], to: [to], duration: duration,
-            easing: EaseSine.easeOut, option: nil, changeFunction: changeFunction)
+            onChanged: changeFunction, easing: EaseSine.easeOut())
     }
 
     static public func animate(prop: String,
                                from: Double,
                                to: Double,
                                duration: TimeInterval,
-                               easing: @escaping EaseFunction,
-                               option: Option,
-                               changeFunction: ChangeFunction? = nil) -> ValueAnimator {
+                               onChanged: ChangeFunction? = nil,
+                               easing: Easing? = nil,
+                               option: Option? = nil) -> ValueAnimator {
         return animate(props: [prop], from: [from], to: [to], duration: duration,
-            easing: easing, option: nil, changeFunction: changeFunction)
+            onChanged: onChanged, easing: easing, option: option)
     }
 
     static public func animate(props: [String],
                                from: [Double],
                                to: [Double],
                                duration: TimeInterval,
-                               easing: @escaping EaseFunction,
+                               onChanged: ChangeFunction? = nil,
+                               easing: Easing? = nil,
                                option: Option? = nil,
-                               changeFunction: ChangeFunction? = nil,
                                endFunction: EndFunction? = nil) -> ValueAnimator {
         let ani = ValueAnimator()
         ani.props = props
@@ -157,7 +156,7 @@ public class ValueAnimator: Hashable {
             ani.changes[p] = to[i] - from[i]
         }
         ani.duration = duration
-        ani.easing = easing
+        ani.easing = easing ?? EaseLinear.easeNone()
         ani.endFunction = endFunction
         if let option = option {
             ani.yoyo = option.yoyo
@@ -167,7 +166,7 @@ public class ValueAnimator: Hashable {
         if ani.yoyo && ani.repeatCount > 0 {
             ani.repeatCount *= 2
         }
-        ani.changeFunction = changeFunction
+        ani.changeFunction = onChanged
         ani.startTime = Date().timeIntervalSince1970
 
 
