@@ -3,6 +3,7 @@
 # pods to be defined within a target. To work with that without having to make
 # any of the actual ReSwift targets dirty or bloated a dummy target called
 # SwiftLintIntegration has been added.
+
 target 'SwiftLintIntegration' do
   pod 'SwiftLint'
 end

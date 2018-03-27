@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		172537CD206A12B700F61CBB /* Easing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172537CC206A12B700F61CBB /* Easing.swift */; };
 		176B392620589EB100F0DF06 /* ValueAnimator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 176B391C20589EB100F0DF06 /* ValueAnimator.framework */; };
 		176B392B20589EB100F0DF06 /* ValueAnimatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B392A20589EB100F0DF06 /* ValueAnimatorTests.swift */; };
 		176B392D20589EB100F0DF06 /* ValueAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = 176B391F20589EB100F0DF06 /* ValueAnimator.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -14,8 +15,6 @@
 		176B393920589F5800F0DF06 /* ValueAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B393720589F5800F0DF06 /* ValueAnimator.swift */; };
 		176B393E20589F7F00F0DF06 /* EaseCircular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B393B20589F7F00F0DF06 /* EaseCircular.swift */; };
 		176B393F20589F7F00F0DF06 /* EaseCircular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B393B20589F7F00F0DF06 /* EaseCircular.swift */; };
-		176B394020589F7F00F0DF06 /* Easing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B393C20589F7F00F0DF06 /* Easing.swift */; };
-		176B394120589F7F00F0DF06 /* Easing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B393C20589F7F00F0DF06 /* Easing.swift */; };
 		176B394220589F7F00F0DF06 /* EaseLinear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B393D20589F7F00F0DF06 /* EaseLinear.swift */; };
 		176B394320589F7F00F0DF06 /* EaseLinear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B393D20589F7F00F0DF06 /* EaseLinear.swift */; };
 		176B394E2058A8C700F0DF06 /* SwiftLintIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B394D2058A8C700F0DF06 /* SwiftLintIntegration.swift */; };
@@ -43,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		172537CC206A12B700F61CBB /* Easing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Easing.swift; sourceTree = "<group>"; };
 		176B391C20589EB100F0DF06 /* ValueAnimator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ValueAnimator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		176B391F20589EB100F0DF06 /* ValueAnimator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ValueAnimator.h; sourceTree = "<group>"; };
 		176B392020589EB100F0DF06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,7 +51,6 @@
 		176B392C20589EB100F0DF06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		176B393720589F5800F0DF06 /* ValueAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueAnimator.swift; sourceTree = "<group>"; };
 		176B393B20589F7F00F0DF06 /* EaseCircular.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EaseCircular.swift; sourceTree = "<group>"; };
-		176B393C20589F7F00F0DF06 /* Easing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Easing.swift; sourceTree = "<group>"; };
 		176B393D20589F7F00F0DF06 /* EaseLinear.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EaseLinear.swift; sourceTree = "<group>"; };
 		176B394B2058A8C700F0DF06 /* SwiftLintIntegration.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftLintIntegration.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		176B394D2058A8C700F0DF06 /* SwiftLintIntegration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftLintIntegration.swift; sourceTree = "<group>"; };
@@ -152,6 +151,7 @@
 		176B393620589F1800F0DF06 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				172537CC206A12B700F61CBB /* Easing.swift */,
 				176B393720589F5800F0DF06 /* ValueAnimator.swift */,
 			);
 			path = Core;
@@ -171,7 +171,6 @@
 				176B395D205B936200F0DF06 /* EaseStrong.swift */,
 				176B393B20589F7F00F0DF06 /* EaseCircular.swift */,
 				176B393D20589F7F00F0DF06 /* EaseLinear.swift */,
-				176B393C20589F7F00F0DF06 /* Easing.swift */,
 			);
 			path = Easing;
 			sourceTree = "<group>";
@@ -396,10 +395,10 @@
 				176B395F205B936300F0DF06 /* EaseElastic.swift in Sources */,
 				176B393820589F5800F0DF06 /* ValueAnimator.swift in Sources */,
 				176B3963205B936300F0DF06 /* EaseQuadratic.swift in Sources */,
+				172537CD206A12B700F61CBB /* Easing.swift in Sources */,
 				176B3961205B936300F0DF06 /* EaseBounce.swift in Sources */,
 				176B3960205B936300F0DF06 /* EaseSine.swift in Sources */,
 				176B3964205B936300F0DF06 /* EaseExponential.swift in Sources */,
-				176B394020589F7F00F0DF06 /* Easing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,7 +408,6 @@
 			files = (
 				176B393920589F5800F0DF06 /* ValueAnimator.swift in Sources */,
 				176B392B20589EB100F0DF06 /* ValueAnimatorTests.swift in Sources */,
-				176B394120589F7F00F0DF06 /* Easing.swift in Sources */,
 				176B394320589F7F00F0DF06 /* EaseLinear.swift in Sources */,
 				176B393F20589F7F00F0DF06 /* EaseCircular.swift in Sources */,
 			);
@@ -595,6 +593,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TB576F3KJ6;
 				INFOPLIST_FILE = ValueAnimatorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hansoolabs.ValueAnimatorTests;
@@ -609,6 +608,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TB576F3KJ6;
 				INFOPLIST_FILE = ValueAnimatorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hansoolabs.ValueAnimatorTests;
@@ -623,6 +623,7 @@
 			baseConfigurationReference = 7607BED149B5FE7E4DCB2A28 /* Pods-SwiftLintIntegration.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TB576F3KJ6;
 				INFOPLIST_FILE = SwiftLintIntegration/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hansoolabs.SwiftLintIntegration;
@@ -637,6 +638,7 @@
 			baseConfigurationReference = DD597FF115D5741B2B2BA70A /* Pods-SwiftLintIntegration.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TB576F3KJ6;
 				INFOPLIST_FILE = SwiftLintIntegration/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hansoolabs.SwiftLintIntegration;
