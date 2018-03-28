@@ -2,7 +2,7 @@
 //  Easing.swift
 //  ValueAnimator
 //
-//  Created by hyonsoo han on 2018. 3. 19..
+//  Created by brownsoo han on 2018. 3. 19..
 //
 
 /// Easing method

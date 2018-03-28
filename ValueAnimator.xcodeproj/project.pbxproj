@@ -7,16 +7,56 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		170DFD94206B5C12002C5042 /* ValueAnimator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 170DFD8B206B5C12002C5042 /* ValueAnimator.framework */; };
+		170DFDB0206B6080002C5042 /* ValueAnimator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 170DFDA7206B6080002C5042 /* ValueAnimator.framework */; };
+		170DFDCB206B62E1002C5042 /* EaseBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B3955205B936200F0DF06 /* EaseBack.swift */; };
+		170DFDCC206B62E1002C5042 /* EaseBounce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B3958205B936200F0DF06 /* EaseBounce.swift */; };
+		170DFDCD206B62E1002C5042 /* EaseCubic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B3959205B936200F0DF06 /* EaseCubic.swift */; };
+		170DFDCE206B62E1002C5042 /* EaseElastic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B3956205B936200F0DF06 /* EaseElastic.swift */; };
+		170DFDCF206B62E1002C5042 /* EaseExponential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B395B205B936200F0DF06 /* EaseExponential.swift */; };
+		170DFDD0206B62E1002C5042 /* EaseQuadratic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B395A205B936200F0DF06 /* EaseQuadratic.swift */; };
+		170DFDD1206B62E1002C5042 /* EaseQuartic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B395C205B936200F0DF06 /* EaseQuartic.swift */; };
+		170DFDD2206B62E1002C5042 /* EaseSine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B3957205B936200F0DF06 /* EaseSine.swift */; };
+		170DFDD3206B62E1002C5042 /* EaseStrong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B395D205B936200F0DF06 /* EaseStrong.swift */; };
+		170DFDD4206B62E1002C5042 /* EaseCircular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B393B20589F7F00F0DF06 /* EaseCircular.swift */; };
+		170DFDD5206B62E1002C5042 /* EaseLinear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B393D20589F7F00F0DF06 /* EaseLinear.swift */; };
+		170DFDD6206B62E1002C5042 /* Easing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172537CC206A12B700F61CBB /* Easing.swift */; };
+		170DFDD7206B62E1002C5042 /* ValueAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B393720589F5800F0DF06 /* ValueAnimator.swift */; };
+		170DFDD8206B6321002C5042 /* ValueAnimatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B392A20589EB100F0DF06 /* ValueAnimatorTests.swift */; };
+		170DFDDA206B6348002C5042 /* EaseBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B3955205B936200F0DF06 /* EaseBack.swift */; };
+		170DFDDB206B6348002C5042 /* EaseBounce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B3958205B936200F0DF06 /* EaseBounce.swift */; };
+		170DFDDC206B6348002C5042 /* EaseCubic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B3959205B936200F0DF06 /* EaseCubic.swift */; };
+		170DFDDD206B6348002C5042 /* EaseElastic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B3956205B936200F0DF06 /* EaseElastic.swift */; };
+		170DFDDE206B6348002C5042 /* EaseExponential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B395B205B936200F0DF06 /* EaseExponential.swift */; };
+		170DFDDF206B6348002C5042 /* EaseQuadratic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B395A205B936200F0DF06 /* EaseQuadratic.swift */; };
+		170DFDE0206B6348002C5042 /* EaseQuartic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B395C205B936200F0DF06 /* EaseQuartic.swift */; };
+		170DFDE1206B6348002C5042 /* EaseSine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B3957205B936200F0DF06 /* EaseSine.swift */; };
+		170DFDE2206B6348002C5042 /* EaseStrong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B395D205B936200F0DF06 /* EaseStrong.swift */; };
+		170DFDE3206B6348002C5042 /* EaseCircular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B393B20589F7F00F0DF06 /* EaseCircular.swift */; };
+		170DFDE4206B6348002C5042 /* EaseLinear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B393D20589F7F00F0DF06 /* EaseLinear.swift */; };
+		170DFDE5206B6348002C5042 /* Easing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172537CC206A12B700F61CBB /* Easing.swift */; };
+		170DFDE6206B6348002C5042 /* ValueAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B393720589F5800F0DF06 /* ValueAnimator.swift */; };
+		170DFDE7206B6355002C5042 /* ValueAnimatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B392A20589EB100F0DF06 /* ValueAnimatorTests.swift */; };
+		170DFDE8206B6367002C5042 /* EaseBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B3955205B936200F0DF06 /* EaseBack.swift */; };
+		170DFDE9206B6367002C5042 /* EaseBounce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B3958205B936200F0DF06 /* EaseBounce.swift */; };
+		170DFDEA206B6367002C5042 /* EaseCubic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B3959205B936200F0DF06 /* EaseCubic.swift */; };
+		170DFDEB206B6367002C5042 /* EaseElastic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B3956205B936200F0DF06 /* EaseElastic.swift */; };
+		170DFDEC206B6367002C5042 /* EaseExponential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B395B205B936200F0DF06 /* EaseExponential.swift */; };
+		170DFDED206B6367002C5042 /* EaseQuadratic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B395A205B936200F0DF06 /* EaseQuadratic.swift */; };
+		170DFDEE206B6367002C5042 /* EaseQuartic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B395C205B936200F0DF06 /* EaseQuartic.swift */; };
+		170DFDEF206B6367002C5042 /* EaseSine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B3957205B936200F0DF06 /* EaseSine.swift */; };
+		170DFDF0206B6367002C5042 /* EaseStrong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B395D205B936200F0DF06 /* EaseStrong.swift */; };
+		170DFDF1206B6367002C5042 /* EaseCircular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B393B20589F7F00F0DF06 /* EaseCircular.swift */; };
+		170DFDF2206B6367002C5042 /* EaseLinear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B393D20589F7F00F0DF06 /* EaseLinear.swift */; };
+		170DFDF3206B6367002C5042 /* Easing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172537CC206A12B700F61CBB /* Easing.swift */; };
+		170DFDF4206B6367002C5042 /* ValueAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B393720589F5800F0DF06 /* ValueAnimator.swift */; };
+		170DFDF5206B6379002C5042 /* ValueAnimatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B392A20589EB100F0DF06 /* ValueAnimatorTests.swift */; };
 		172537CD206A12B700F61CBB /* Easing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172537CC206A12B700F61CBB /* Easing.swift */; };
 		176B392620589EB100F0DF06 /* ValueAnimator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 176B391C20589EB100F0DF06 /* ValueAnimator.framework */; };
-		176B392B20589EB100F0DF06 /* ValueAnimatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B392A20589EB100F0DF06 /* ValueAnimatorTests.swift */; };
 		176B392D20589EB100F0DF06 /* ValueAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = 176B391F20589EB100F0DF06 /* ValueAnimator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		176B393820589F5800F0DF06 /* ValueAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B393720589F5800F0DF06 /* ValueAnimator.swift */; };
-		176B393920589F5800F0DF06 /* ValueAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B393720589F5800F0DF06 /* ValueAnimator.swift */; };
 		176B393E20589F7F00F0DF06 /* EaseCircular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B393B20589F7F00F0DF06 /* EaseCircular.swift */; };
-		176B393F20589F7F00F0DF06 /* EaseCircular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B393B20589F7F00F0DF06 /* EaseCircular.swift */; };
 		176B394220589F7F00F0DF06 /* EaseLinear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B393D20589F7F00F0DF06 /* EaseLinear.swift */; };
-		176B394320589F7F00F0DF06 /* EaseLinear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B393D20589F7F00F0DF06 /* EaseLinear.swift */; };
 		176B394E2058A8C700F0DF06 /* SwiftLintIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B394D2058A8C700F0DF06 /* SwiftLintIntegration.swift */; };
 		176B39542058A94D00F0DF06 /* ValueAnimator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 176B391C20589EB100F0DF06 /* ValueAnimator.framework */; };
 		176B395E205B936300F0DF06 /* EaseBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B3955205B936200F0DF06 /* EaseBack.swift */; };
@@ -32,6 +72,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		170DFD95206B5C12002C5042 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 176B391320589EB100F0DF06 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 170DFD8A206B5C12002C5042;
+			remoteInfo = ValueAnimatorTvOS;
+		};
+		170DFDB1206B6080002C5042 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 176B391320589EB100F0DF06 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 170DFDA6206B6080002C5042;
+			remoteInfo = ValueAnimator;
+		};
 		176B392720589EB100F0DF06 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 176B391320589EB100F0DF06 /* Project object */;
@@ -42,11 +96,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		170DFD8B206B5C12002C5042 /* ValueAnimator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ValueAnimator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		170DFD93206B5C12002C5042 /* ValueAnimator-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ValueAnimator-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		170DFDA7206B6080002C5042 /* ValueAnimator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ValueAnimator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		170DFDAF206B6080002C5042 /* ValueAnimator-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ValueAnimator-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		170DFDC3206B6182002C5042 /* ValueAnimator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ValueAnimator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		172537CC206A12B700F61CBB /* Easing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Easing.swift; sourceTree = "<group>"; };
 		176B391C20589EB100F0DF06 /* ValueAnimator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ValueAnimator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		176B391F20589EB100F0DF06 /* ValueAnimator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ValueAnimator.h; sourceTree = "<group>"; };
 		176B392020589EB100F0DF06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		176B392520589EB100F0DF06 /* ValueAnimatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ValueAnimatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		176B392520589EB100F0DF06 /* ValueAnimator-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ValueAnimator-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		176B392A20589EB100F0DF06 /* ValueAnimatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueAnimatorTests.swift; sourceTree = "<group>"; };
 		176B392C20589EB100F0DF06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		176B393720589F5800F0DF06 /* ValueAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueAnimator.swift; sourceTree = "<group>"; };
@@ -70,6 +129,43 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		170DFD87206B5C12002C5042 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		170DFD90206B5C12002C5042 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				170DFD94206B5C12002C5042 /* ValueAnimator.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		170DFDA3206B6080002C5042 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		170DFDAC206B6080002C5042 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				170DFDB0206B6080002C5042 /* ValueAnimator.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		170DFDBF206B6182002C5042 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		176B391820589EB100F0DF06 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -122,8 +218,13 @@
 			isa = PBXGroup;
 			children = (
 				176B391C20589EB100F0DF06 /* ValueAnimator.framework */,
-				176B392520589EB100F0DF06 /* ValueAnimatorTests.xctest */,
+				176B392520589EB100F0DF06 /* ValueAnimator-iOSTests.xctest */,
 				176B394B2058A8C700F0DF06 /* SwiftLintIntegration.xctest */,
+				170DFD8B206B5C12002C5042 /* ValueAnimator.framework */,
+				170DFD93206B5C12002C5042 /* ValueAnimator-tvOSTests.xctest */,
+				170DFDA7206B6080002C5042 /* ValueAnimator.framework */,
+				170DFDAF206B6080002C5042 /* ValueAnimator-macOSTests.xctest */,
+				170DFDC3206B6182002C5042 /* ValueAnimator.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -195,6 +296,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		170DFD88206B5C12002C5042 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		170DFDA4206B6080002C5042 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		170DFDD9206B633B002C5042 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		176B391920589EB100F0DF06 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -206,9 +328,99 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		176B391B20589EB100F0DF06 /* ValueAnimator */ = {
+		170DFD8A206B5C12002C5042 /* ValueAnimator-tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 176B393020589EB100F0DF06 /* Build configuration list for PBXNativeTarget "ValueAnimator" */;
+			buildConfigurationList = 170DFD9C206B5C13002C5042 /* Build configuration list for PBXNativeTarget "ValueAnimator-tvOS" */;
+			buildPhases = (
+				170DFD86206B5C12002C5042 /* Sources */,
+				170DFD87206B5C12002C5042 /* Frameworks */,
+				170DFD88206B5C12002C5042 /* Headers */,
+				170DFD89206B5C12002C5042 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ValueAnimator-tvOS";
+			productName = ValueAnimatorTvOS;
+			productReference = 170DFD8B206B5C12002C5042 /* ValueAnimator.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		170DFD92206B5C12002C5042 /* ValueAnimator-tvOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 170DFD9F206B5C13002C5042 /* Build configuration list for PBXNativeTarget "ValueAnimator-tvOSTests" */;
+			buildPhases = (
+				170DFD8F206B5C12002C5042 /* Sources */,
+				170DFD90206B5C12002C5042 /* Frameworks */,
+				170DFD91206B5C12002C5042 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				170DFD96206B5C12002C5042 /* PBXTargetDependency */,
+			);
+			name = "ValueAnimator-tvOSTests";
+			productName = ValueAnimatorTvOSTests;
+			productReference = 170DFD93206B5C12002C5042 /* ValueAnimator-tvOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		170DFDA6206B6080002C5042 /* ValueAnimator-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 170DFDB8206B6080002C5042 /* Build configuration list for PBXNativeTarget "ValueAnimator-macOS" */;
+			buildPhases = (
+				170DFDA2206B6080002C5042 /* Sources */,
+				170DFDA3206B6080002C5042 /* Frameworks */,
+				170DFDA4206B6080002C5042 /* Headers */,
+				170DFDA5206B6080002C5042 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ValueAnimator-macOS";
+			productName = ValueAnimator;
+			productReference = 170DFDA7206B6080002C5042 /* ValueAnimator.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		170DFDAE206B6080002C5042 /* ValueAnimator-macOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 170DFDBB206B6080002C5042 /* Build configuration list for PBXNativeTarget "ValueAnimator-macOSTests" */;
+			buildPhases = (
+				170DFDAB206B6080002C5042 /* Sources */,
+				170DFDAC206B6080002C5042 /* Frameworks */,
+				170DFDAD206B6080002C5042 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				170DFDB2206B6080002C5042 /* PBXTargetDependency */,
+			);
+			name = "ValueAnimator-macOSTests";
+			productName = ValueAnimatorTests;
+			productReference = 170DFDAF206B6080002C5042 /* ValueAnimator-macOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		170DFDC2206B6182002C5042 /* ValueAnimator-watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 170DFDC8206B6182002C5042 /* Build configuration list for PBXNativeTarget "ValueAnimator-watchOS" */;
+			buildPhases = (
+				170DFDBE206B6182002C5042 /* Sources */,
+				170DFDBF206B6182002C5042 /* Frameworks */,
+				170DFDD9206B633B002C5042 /* Headers */,
+				170DFDC1206B6182002C5042 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ValueAnimator-watchOS";
+			productName = ValueAnimator;
+			productReference = 170DFDC3206B6182002C5042 /* ValueAnimator.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		176B391B20589EB100F0DF06 /* ValueAnimator-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 176B393020589EB100F0DF06 /* Build configuration list for PBXNativeTarget "ValueAnimator-iOS" */;
 			buildPhases = (
 				176B391720589EB100F0DF06 /* Sources */,
 				176B391820589EB100F0DF06 /* Frameworks */,
@@ -219,14 +431,14 @@
 			);
 			dependencies = (
 			);
-			name = ValueAnimator;
+			name = "ValueAnimator-iOS";
 			productName = ValueAnimator;
 			productReference = 176B391C20589EB100F0DF06 /* ValueAnimator.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		176B392420589EB100F0DF06 /* ValueAnimatorTests */ = {
+		176B392420589EB100F0DF06 /* ValueAnimator-iOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 176B393320589EB100F0DF06 /* Build configuration list for PBXNativeTarget "ValueAnimatorTests" */;
+			buildConfigurationList = 176B393320589EB100F0DF06 /* Build configuration list for PBXNativeTarget "ValueAnimator-iOSTests" */;
 			buildPhases = (
 				176B392120589EB100F0DF06 /* Sources */,
 				176B392220589EB100F0DF06 /* Frameworks */,
@@ -237,9 +449,9 @@
 			dependencies = (
 				176B392820589EB100F0DF06 /* PBXTargetDependency */,
 			);
-			name = ValueAnimatorTests;
+			name = "ValueAnimator-iOSTests";
 			productName = ValueAnimatorTests;
-			productReference = 176B392520589EB100F0DF06 /* ValueAnimatorTests.xctest */;
+			productReference = 176B392520589EB100F0DF06 /* ValueAnimator-iOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		176B394A2058A8C700F0DF06 /* SwiftLintIntegration */ = {
@@ -272,10 +484,30 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = Hansoolabs;
 				TargetAttributes = {
+					170DFD8A206B5C12002C5042 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Manual;
+					};
+					170DFD92206B5C12002C5042 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					170DFDA6206B6080002C5042 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					170DFDAE206B6080002C5042 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					170DFDC2206B6182002C5042 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 					176B391B20589EB100F0DF06 = {
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 0920;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					176B392420589EB100F0DF06 = {
 						CreatedOnToolsVersion = 9.2;
@@ -299,14 +531,54 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				176B391B20589EB100F0DF06 /* ValueAnimator */,
-				176B392420589EB100F0DF06 /* ValueAnimatorTests */,
+				176B391B20589EB100F0DF06 /* ValueAnimator-iOS */,
+				176B392420589EB100F0DF06 /* ValueAnimator-iOSTests */,
+				170DFD8A206B5C12002C5042 /* ValueAnimator-tvOS */,
+				170DFD92206B5C12002C5042 /* ValueAnimator-tvOSTests */,
+				170DFDA6206B6080002C5042 /* ValueAnimator-macOS */,
+				170DFDAE206B6080002C5042 /* ValueAnimator-macOSTests */,
+				170DFDC2206B6182002C5042 /* ValueAnimator-watchOS */,
 				176B394A2058A8C700F0DF06 /* SwiftLintIntegration */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		170DFD89206B5C12002C5042 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		170DFD91206B5C12002C5042 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		170DFDA5206B6080002C5042 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		170DFDAD206B6080002C5042 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		170DFDC1206B6182002C5042 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		176B391A20589EB100F0DF06 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -382,6 +654,82 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		170DFD86206B5C12002C5042 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				170DFDE8206B6367002C5042 /* EaseBack.swift in Sources */,
+				170DFDE9206B6367002C5042 /* EaseBounce.swift in Sources */,
+				170DFDEA206B6367002C5042 /* EaseCubic.swift in Sources */,
+				170DFDEB206B6367002C5042 /* EaseElastic.swift in Sources */,
+				170DFDEC206B6367002C5042 /* EaseExponential.swift in Sources */,
+				170DFDED206B6367002C5042 /* EaseQuadratic.swift in Sources */,
+				170DFDEE206B6367002C5042 /* EaseQuartic.swift in Sources */,
+				170DFDEF206B6367002C5042 /* EaseSine.swift in Sources */,
+				170DFDF0206B6367002C5042 /* EaseStrong.swift in Sources */,
+				170DFDF1206B6367002C5042 /* EaseCircular.swift in Sources */,
+				170DFDF2206B6367002C5042 /* EaseLinear.swift in Sources */,
+				170DFDF3206B6367002C5042 /* Easing.swift in Sources */,
+				170DFDF4206B6367002C5042 /* ValueAnimator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		170DFD8F206B5C12002C5042 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				170DFDE7206B6355002C5042 /* ValueAnimatorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		170DFDA2206B6080002C5042 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				170DFDDA206B6348002C5042 /* EaseBack.swift in Sources */,
+				170DFDDB206B6348002C5042 /* EaseBounce.swift in Sources */,
+				170DFDDC206B6348002C5042 /* EaseCubic.swift in Sources */,
+				170DFDDD206B6348002C5042 /* EaseElastic.swift in Sources */,
+				170DFDDE206B6348002C5042 /* EaseExponential.swift in Sources */,
+				170DFDDF206B6348002C5042 /* EaseQuadratic.swift in Sources */,
+				170DFDE0206B6348002C5042 /* EaseQuartic.swift in Sources */,
+				170DFDE1206B6348002C5042 /* EaseSine.swift in Sources */,
+				170DFDE2206B6348002C5042 /* EaseStrong.swift in Sources */,
+				170DFDE3206B6348002C5042 /* EaseCircular.swift in Sources */,
+				170DFDE4206B6348002C5042 /* EaseLinear.swift in Sources */,
+				170DFDE5206B6348002C5042 /* Easing.swift in Sources */,
+				170DFDE6206B6348002C5042 /* ValueAnimator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		170DFDAB206B6080002C5042 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				170DFDD8206B6321002C5042 /* ValueAnimatorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		170DFDBE206B6182002C5042 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				170DFDCB206B62E1002C5042 /* EaseBack.swift in Sources */,
+				170DFDCC206B62E1002C5042 /* EaseBounce.swift in Sources */,
+				170DFDCD206B62E1002C5042 /* EaseCubic.swift in Sources */,
+				170DFDCE206B62E1002C5042 /* EaseElastic.swift in Sources */,
+				170DFDCF206B62E1002C5042 /* EaseExponential.swift in Sources */,
+				170DFDD0206B62E1002C5042 /* EaseQuadratic.swift in Sources */,
+				170DFDD1206B62E1002C5042 /* EaseQuartic.swift in Sources */,
+				170DFDD2206B62E1002C5042 /* EaseSine.swift in Sources */,
+				170DFDD3206B62E1002C5042 /* EaseStrong.swift in Sources */,
+				170DFDD4206B62E1002C5042 /* EaseCircular.swift in Sources */,
+				170DFDD5206B62E1002C5042 /* EaseLinear.swift in Sources */,
+				170DFDD6206B62E1002C5042 /* Easing.swift in Sources */,
+				170DFDD7206B62E1002C5042 /* ValueAnimator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		176B391720589EB100F0DF06 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -406,10 +754,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				176B393920589F5800F0DF06 /* ValueAnimator.swift in Sources */,
-				176B392B20589EB100F0DF06 /* ValueAnimatorTests.swift in Sources */,
-				176B394320589F7F00F0DF06 /* EaseLinear.swift in Sources */,
-				176B393F20589F7F00F0DF06 /* EaseCircular.swift in Sources */,
+				170DFDF5206B6379002C5042 /* ValueAnimatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,14 +769,239 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		170DFD96206B5C12002C5042 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 170DFD8A206B5C12002C5042 /* ValueAnimator-tvOS */;
+			targetProxy = 170DFD95206B5C12002C5042 /* PBXContainerItemProxy */;
+		};
+		170DFDB2206B6080002C5042 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 170DFDA6206B6080002C5042 /* ValueAnimator-macOS */;
+			targetProxy = 170DFDB1206B6080002C5042 /* PBXContainerItemProxy */;
+		};
 		176B392820589EB100F0DF06 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 176B391B20589EB100F0DF06 /* ValueAnimator */;
+			target = 176B391B20589EB100F0DF06 /* ValueAnimator-iOS */;
 			targetProxy = 176B392720589EB100F0DF06 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		170DFD9D206B5C13002C5042 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ValueAnimator/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hansoolabs.ValueAnimator;
+				PRODUCT_NAME = ValueAnimator;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		170DFD9E206B5C13002C5042 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ValueAnimator/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hansoolabs.ValueAnimator;
+				PRODUCT_NAME = ValueAnimator;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Release;
+		};
+		170DFDA0206B5C13002C5042 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = ValueAnimatorTvOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hansoolabs.ValueAnimatorTvOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Debug;
+		};
+		170DFDA1206B5C13002C5042 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ValueAnimatorTvOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hansoolabs.ValueAnimatorTvOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Release;
+		};
+		170DFDB9206B6080002C5042 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = ValueAnimator/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hansoolabs.ValueAnimator;
+				PRODUCT_NAME = ValueAnimator;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		170DFDBA206B6080002C5042 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = ValueAnimator/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hansoolabs.ValueAnimator;
+				PRODUCT_NAME = ValueAnimator;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		170DFDBC206B6080002C5042 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = ValueAnimatorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hansoolabs.ValueAnimatorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		170DFDBD206B6080002C5042 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ValueAnimatorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hansoolabs.ValueAnimatorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		170DFDC9206B6182002C5042 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ValueAnimator/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hansoolabs.ValueAnimator;
+				PRODUCT_NAME = ValueAnimator;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		170DFDCA206B6182002C5042 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ValueAnimator/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hansoolabs.ValueAnimator;
+				PRODUCT_NAME = ValueAnimator;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
 		176B392E20589EB100F0DF06 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -461,10 +1031,10 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -481,7 +1051,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -521,7 +1092,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -535,7 +1106,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -550,8 +1122,9 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -559,7 +1132,9 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hansoolabs.ValueAnimator;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_MODULE_NAME = ValueAnimator;
+				PRODUCT_NAME = ValueAnimator;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -572,8 +1147,9 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -581,7 +1157,9 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hansoolabs.ValueAnimator;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_MODULE_NAME = ValueAnimator;
+				PRODUCT_NAME = ValueAnimator;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -593,7 +1171,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TB576F3KJ6;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ValueAnimatorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hansoolabs.ValueAnimatorTests;
@@ -608,7 +1186,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TB576F3KJ6;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ValueAnimatorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hansoolabs.ValueAnimatorTests;
@@ -651,6 +1229,51 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		170DFD9C206B5C13002C5042 /* Build configuration list for PBXNativeTarget "ValueAnimator-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				170DFD9D206B5C13002C5042 /* Debug */,
+				170DFD9E206B5C13002C5042 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		170DFD9F206B5C13002C5042 /* Build configuration list for PBXNativeTarget "ValueAnimator-tvOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				170DFDA0206B5C13002C5042 /* Debug */,
+				170DFDA1206B5C13002C5042 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		170DFDB8206B6080002C5042 /* Build configuration list for PBXNativeTarget "ValueAnimator-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				170DFDB9206B6080002C5042 /* Debug */,
+				170DFDBA206B6080002C5042 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		170DFDBB206B6080002C5042 /* Build configuration list for PBXNativeTarget "ValueAnimator-macOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				170DFDBC206B6080002C5042 /* Debug */,
+				170DFDBD206B6080002C5042 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		170DFDC8206B6182002C5042 /* Build configuration list for PBXNativeTarget "ValueAnimator-watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				170DFDC9206B6182002C5042 /* Debug */,
+				170DFDCA206B6182002C5042 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		176B391620589EB100F0DF06 /* Build configuration list for PBXProject "ValueAnimator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -660,7 +1283,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		176B393020589EB100F0DF06 /* Build configuration list for PBXNativeTarget "ValueAnimator" */ = {
+		176B393020589EB100F0DF06 /* Build configuration list for PBXNativeTarget "ValueAnimator-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				176B393120589EB100F0DF06 /* Debug */,
@@ -669,7 +1292,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		176B393320589EB100F0DF06 /* Build configuration list for PBXNativeTarget "ValueAnimatorTests" */ = {
+		176B393320589EB100F0DF06 /* Build configuration list for PBXNativeTarget "ValueAnimator-iOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				176B393420589EB100F0DF06 /* Debug */,

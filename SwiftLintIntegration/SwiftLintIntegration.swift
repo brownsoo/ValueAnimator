@@ -2,7 +2,7 @@
 //  SwiftLintIntegration.swift
 //  SwiftLintIntegration
 //
-//  Created by hyonsoo han on 2018. 3. 14..
+//  Created by brownsoo han on 2018. 3. 14..
 //  Copyright © 2018년 Hansoolabs. All rights reserved.
 //
 
