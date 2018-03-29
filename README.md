@@ -7,6 +7,21 @@
 [![License](https://img.shields.io/cocoapods/l/ValueAnimator.svg?style=flat)](http://cocoapods.org/pods/ValueAnimator)
 [![Platform](https://img.shields.io/cocoapods/p/ValueAnimator.svg?style=flat)](http://cocoapods.org/pods/ValueAnimator)
 
+## Usage
+
+ValueAnimator makes the transition from initial value to target value using easing functions.
+
+#### Simple animation
+
+```
+let animator = ValueAnimator.animate("r", from: 0, to: 360, duration: 1.0,
+    onChanged: { p, v in 
+        print("property \(p): \(v)")
+    },
+    easing: EaseCircular.easeIn())
+animator.resume()
+```
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
