@@ -22,7 +22,7 @@
 		170DFDD5206B62E1002C5042 /* EaseLinear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B393D20589F7F00F0DF06 /* EaseLinear.swift */; };
 		170DFDD6206B62E1002C5042 /* Easing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172537CC206A12B700F61CBB /* Easing.swift */; };
 		170DFDD7206B62E1002C5042 /* ValueAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B393720589F5800F0DF06 /* ValueAnimator.swift */; };
-		170DFDD8206B6321002C5042 /* ValueAnimatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B392A20589EB100F0DF06 /* ValueAnimatorTests.swift */; };
+		170DFDD8206B6321002C5042 /* PropertyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B392A20589EB100F0DF06 /* PropertyTests.swift */; };
 		170DFDDA206B6348002C5042 /* EaseBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B3955205B936200F0DF06 /* EaseBack.swift */; };
 		170DFDDB206B6348002C5042 /* EaseBounce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B3958205B936200F0DF06 /* EaseBounce.swift */; };
 		170DFDDC206B6348002C5042 /* EaseCubic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B3959205B936200F0DF06 /* EaseCubic.swift */; };
@@ -36,7 +36,7 @@
 		170DFDE4206B6348002C5042 /* EaseLinear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B393D20589F7F00F0DF06 /* EaseLinear.swift */; };
 		170DFDE5206B6348002C5042 /* Easing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172537CC206A12B700F61CBB /* Easing.swift */; };
 		170DFDE6206B6348002C5042 /* ValueAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B393720589F5800F0DF06 /* ValueAnimator.swift */; };
-		170DFDE7206B6355002C5042 /* ValueAnimatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B392A20589EB100F0DF06 /* ValueAnimatorTests.swift */; };
+		170DFDE7206B6355002C5042 /* PropertyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B392A20589EB100F0DF06 /* PropertyTests.swift */; };
 		170DFDE8206B6367002C5042 /* EaseBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B3955205B936200F0DF06 /* EaseBack.swift */; };
 		170DFDE9206B6367002C5042 /* EaseBounce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B3958205B936200F0DF06 /* EaseBounce.swift */; };
 		170DFDEA206B6367002C5042 /* EaseCubic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B3959205B936200F0DF06 /* EaseCubic.swift */; };
@@ -50,7 +50,10 @@
 		170DFDF2206B6367002C5042 /* EaseLinear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B393D20589F7F00F0DF06 /* EaseLinear.swift */; };
 		170DFDF3206B6367002C5042 /* Easing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172537CC206A12B700F61CBB /* Easing.swift */; };
 		170DFDF4206B6367002C5042 /* ValueAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B393720589F5800F0DF06 /* ValueAnimator.swift */; };
-		170DFDF5206B6379002C5042 /* ValueAnimatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B392A20589EB100F0DF06 /* ValueAnimatorTests.swift */; };
+		170DFDF5206B6379002C5042 /* PropertyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B392A20589EB100F0DF06 /* PropertyTests.swift */; };
+		170DFDF7206C6958002C5042 /* XCTest+Compatibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170DFDF6206C6958002C5042 /* XCTest+Compatibility.swift */; };
+		170DFDF8206C6958002C5042 /* XCTest+Compatibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170DFDF6206C6958002C5042 /* XCTest+Compatibility.swift */; };
+		170DFDF9206C6958002C5042 /* XCTest+Compatibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170DFDF6206C6958002C5042 /* XCTest+Compatibility.swift */; };
 		172537CD206A12B700F61CBB /* Easing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172537CC206A12B700F61CBB /* Easing.swift */; };
 		176B392620589EB100F0DF06 /* ValueAnimator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 176B391C20589EB100F0DF06 /* ValueAnimator.framework */; };
 		176B392D20589EB100F0DF06 /* ValueAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = 176B391F20589EB100F0DF06 /* ValueAnimator.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -101,12 +104,13 @@
 		170DFDA7206B6080002C5042 /* ValueAnimator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ValueAnimator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		170DFDAF206B6080002C5042 /* ValueAnimator-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ValueAnimator-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		170DFDC3206B6182002C5042 /* ValueAnimator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ValueAnimator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		170DFDF6206C6958002C5042 /* XCTest+Compatibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTest+Compatibility.swift"; sourceTree = "<group>"; };
 		172537CC206A12B700F61CBB /* Easing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Easing.swift; sourceTree = "<group>"; };
 		176B391C20589EB100F0DF06 /* ValueAnimator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ValueAnimator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		176B391F20589EB100F0DF06 /* ValueAnimator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ValueAnimator.h; sourceTree = "<group>"; };
 		176B392020589EB100F0DF06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		176B392520589EB100F0DF06 /* ValueAnimator-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ValueAnimator-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		176B392A20589EB100F0DF06 /* ValueAnimatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueAnimatorTests.swift; sourceTree = "<group>"; };
+		176B392A20589EB100F0DF06 /* PropertyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyTests.swift; sourceTree = "<group>"; };
 		176B392C20589EB100F0DF06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		176B393720589F5800F0DF06 /* ValueAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueAnimator.swift; sourceTree = "<group>"; };
 		176B393B20589F7F00F0DF06 /* EaseCircular.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EaseCircular.swift; sourceTree = "<group>"; };
@@ -243,8 +247,9 @@
 		176B392920589EB100F0DF06 /* ValueAnimatorTests */ = {
 			isa = PBXGroup;
 			children = (
-				176B392A20589EB100F0DF06 /* ValueAnimatorTests.swift */,
 				176B392C20589EB100F0DF06 /* Info.plist */,
+				176B392A20589EB100F0DF06 /* PropertyTests.swift */,
+				170DFDF6206C6958002C5042 /* XCTest+Compatibility.swift */,
 			);
 			path = ValueAnimatorTests;
 			sourceTree = "<group>";
@@ -678,7 +683,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				170DFDE7206B6355002C5042 /* ValueAnimatorTests.swift in Sources */,
+				170DFDE7206B6355002C5042 /* PropertyTests.swift in Sources */,
+				170DFDF8206C6958002C5042 /* XCTest+Compatibility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -706,7 +712,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				170DFDD8206B6321002C5042 /* ValueAnimatorTests.swift in Sources */,
+				170DFDD8206B6321002C5042 /* PropertyTests.swift in Sources */,
+				170DFDF9206C6958002C5042 /* XCTest+Compatibility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -754,7 +761,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				170DFDF5206B6379002C5042 /* ValueAnimatorTests.swift in Sources */,
+				170DFDF5206B6379002C5042 /* PropertyTests.swift in Sources */,
+				170DFDF7206C6958002C5042 /* XCTest+Compatibility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -842,7 +850,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				INFOPLIST_FILE = ValueAnimatorTvOSTests/Info.plist;
+				INFOPLIST_FILE = ValueAnimatorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hansoolabs.ValueAnimatorTvOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -858,7 +866,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = ValueAnimatorTvOSTests/Info.plist;
+				INFOPLIST_FILE = ValueAnimatorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hansoolabs.ValueAnimatorTvOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

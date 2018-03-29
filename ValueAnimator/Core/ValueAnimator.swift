@@ -279,6 +279,7 @@ public class ValueAnimator: Hashable {
                 ani.changeFunction?(p, initial + change)
             }
         }
+        ani.isAnimating = false
         ani.isFinished = true
         ani.endFunction?()
     }
@@ -286,6 +287,7 @@ public class ValueAnimator: Hashable {
     /// finish animation during animation
     static private func dispose(_ ani: ValueAnimator) {
         aniList.remove(ani)
-        ani.isFinished = true
+        ani.isDisposed = true
+        ani.isAnimating = false
     }
 }
