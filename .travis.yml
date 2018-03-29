@@ -4,6 +4,10 @@
 
 language: objective-c
 
+notifications:
+  email:
+    - hansune@me.com
+
 branches:
   except:
     - gh-pages
@@ -44,8 +48,8 @@ script:
     test
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash) -J ValueAnimator
-  - test $TRAVIS_PULL_REQUEST == "false" &&
-    test $TRAVIS_BRANCH == "master" &&
-    test $UPDATE_DOCS == "true" &&
-    .scripts/update-gh-pages
+#  - bash <(curl -s https://codecov.io/bash) -J ValueAnimator
+#  - test $TRAVIS_PULL_REQUEST == "false" &&
+#    test $TRAVIS_BRANCH == "master" &&
+#    test $UPDATE_DOCS == "true" &&
+#    .scripts/update-gh-pages
