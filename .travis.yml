@@ -36,7 +36,7 @@ script:
   - xcodebuild -version
   - xcodebuild -showsdks
   - xcodebuild
-    -project "$FRAMEWORK_NAME.xcodeproj"
+    -workspace "$FRAMEWORK_NAME.xcworkspace"
     -scheme "$FRAMEWORK_NAME-$SCHEME"
     -sdk "$SDK"
     -destination "$DESTINATION"
@@ -47,7 +47,7 @@ script:
     SWIFT_VERSION=$SWIFT_VERSION
     test
 
-after_success:
+#after_success:
 #  - bash <(curl -s https://codecov.io/bash) -J ValueAnimator
 #  - test $TRAVIS_PULL_REQUEST == "false" &&
 #    test $TRAVIS_BRANCH == "master" &&
