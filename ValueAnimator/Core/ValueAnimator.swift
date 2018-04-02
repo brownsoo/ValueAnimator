@@ -142,10 +142,20 @@ public class ValueAnimator: Hashable {
                                to: Double,
                                duration: TimeInterval,
                                onChanged: ChangeFunction? = nil,
+                               easing: Easing? = nil) -> ValueAnimator {
+        return animate(props: [prop], from: [from], to: [to], duration: duration,
+            onChanged: onChanged, easing: easing, option: nil, endFunction: nil)
+    }
+
+    static public func animate(_ prop: String,
+                               from: Double,
+                               to: Double,
+                               duration: TimeInterval,
+                               onChanged: ChangeFunction? = nil,
                                easing: Easing? = nil,
                                option: Option? = nil) -> ValueAnimator {
         return animate(props: [prop], from: [from], to: [to], duration: duration,
-            onChanged: onChanged, easing: easing, option: option)
+            onChanged: onChanged, easing: easing, option: option, endFunction: nil)
     }
 
     static public func animate(props: [String],
