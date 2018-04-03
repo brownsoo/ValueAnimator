@@ -1,6 +1,6 @@
 # ValueAnimator
 
-# Now Building..
+# Now Building.. updating..
 
 [![CI Status](http://img.shields.io/travis/brownsoo/ValueAnimator.svg?style=flat)](https://travis-ci.org/brownsoo/ValueAnimator)
 [![Version](https://img.shields.io/cocoapods/v/ValueAnimator.svg?style=flat)](http://cocoapods.org/pods/ValueAnimator)
@@ -14,9 +14,25 @@ ValueAnimator makes the transition from initial value to target value using easi
 #### Simple animation
 
 ```
-let animator = ValueAnimator.animate("r", from: 0, to: 360, duration: 1.0,
+let animator = ValueAnimator.animate("some", from: 0, to: 360, duration: 1.0,
     onChanged: { p, v in 
-        print("property \(p): \(v)")
+        print("property \(p): \(v.value)")
+    },
+    easing: EaseCircular.easeIn())
+animator.resume()
+```
+
+#### Thread
+
+ValueAnimator uses its own work-thread. Since the callback 'onChanged' is called in work-thread, you have to change UIView property in Main-thread.
+
+```
+let someView: UIView!
+let animator = ValueAnimator.animate("some", from: 0, to: 1, duration: 1.0,
+    onChanged: { p, v in 
+        DispatchQueue.main.async {
+            self.someView.alpha = v.value
+        }
     },
     easing: EaseCircular.easeIn())
 animator.resume()

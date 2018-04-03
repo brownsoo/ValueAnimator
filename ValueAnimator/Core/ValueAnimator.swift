@@ -48,13 +48,13 @@ public class ValueAnimator: Hashable {
     }
 
     public typealias EndFunction = () -> Void
-    public typealias ChangeFunction = (String, Double) -> Void
+    public typealias ChangeFunction = (String, ValueAnimatable) -> Void
 
     private lazy var objectIdentifier = ObjectIdentifier(self)
     private var props = [String]()
     private var startTime: TimeInterval = 0
-    private var initials = [String: Double]()
-    private var changes = [String: Double]()
+    private var initials = [String: ValueAnimatable]()
+    private var changes = [String: ValueAnimatable]()
     private var duration: TimeInterval = 1
     private var easing: Easing!
 
@@ -69,9 +69,9 @@ public class ValueAnimator: Hashable {
     /// animated count
     public private(set) var counted: Int = 0 {
         didSet {
-        #if DEBUG
+#if DEBUG
             print("ValueAnimator--- counted: \(counted)")
-        #endif
+#endif
         }
     }
     /// whether if it repeat infinitely or not.
@@ -138,29 +138,41 @@ public class ValueAnimator: Hashable {
     }
 
     static public func animate(_ prop: String,
-                               from: Double,
-                               to: Double,
+                               from: AnimatableValueType,
+                               to: AnimatableValueType,
                                duration: TimeInterval,
                                onChanged: ChangeFunction? = nil,
                                easing: Easing? = nil) -> ValueAnimator {
-        return animate(props: [prop], from: [from], to: [to], duration: duration,
-            onChanged: onChanged, easing: easing, option: nil, endFunction: nil)
+        return animate(props: [prop],
+                       from: [from],
+                       to: [to],
+                       duration: duration,
+                       onChanged: onChanged,
+                       easing: easing,
+                       option: nil,
+                       endFunction: nil)
     }
 
     static public func animate(_ prop: String,
-                               from: Double,
-                               to: Double,
+                               from: AnimatableValueType,
+                               to: AnimatableValueType,
                                duration: TimeInterval,
                                onChanged: ChangeFunction? = nil,
                                easing: Easing? = nil,
                                option: Option? = nil) -> ValueAnimator {
-        return animate(props: [prop], from: [from], to: [to], duration: duration,
-            onChanged: onChanged, easing: easing, option: option, endFunction: nil)
+        return animate(props: [prop],
+                       from: [from],
+                       to: [to],
+                       duration: duration,
+                       onChanged: onChanged,
+                       easing: easing,
+                       option: option,
+                       endFunction: nil)
     }
 
     static public func animate(props: [String],
-                               from: [Double],
-                               to: [Double],
+                               from: [AnimatableValueType],
+                               to: [AnimatableValueType],
                                duration: TimeInterval,
                                onChanged: ChangeFunction? = nil,
                                easing: Easing? = nil,
@@ -169,8 +181,8 @@ public class ValueAnimator: Hashable {
         let ani = ValueAnimator()
         ani.props = props
         for (i, p) in props.enumerated() {
-            ani.initials[p] = from[i]
-            ani.changes[p] = to[i] - from[i]
+            ani.initials[p] = from[i].toAnimatable()
+            ani.changes[p] = to[i].toAnimatable() - from[i].toAnimatable()
         }
         ani.duration = duration
         ani.easing = easing ?? EaseLinear.easeNone()
@@ -251,7 +263,7 @@ public class ValueAnimator: Hashable {
                             let changed = initial + change
                             ani.changeFunction?(p, changed)
                             ani.initials[p] = changed
-                            ani.changes[p]! *= -1
+                            ani.changes[p]! *= -1.0
                         }
                     }
                     ani.startTime = nowTime
@@ -274,7 +286,7 @@ public class ValueAnimator: Hashable {
         } else {
             // call updates in progress
             for p in ani.props {
-                ani.changeFunction?(p, ani.easing(ani.covered, ani.initials[p]!, ani.changes[p]!, ani.duration))
+                ani.changeFunction?(p, ani.easing(ani.covered, ani.initials[p]!.value, ani.changes[p]!.value, ani.duration).toAnimatable())
             }
         }
     }
