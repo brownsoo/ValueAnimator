@@ -308,8 +308,8 @@ public class ValueAnimator: Hashable {
         aniList.remove(ani)
         for p in ani.props {
             if let initial = ani.initials[p],
-               let change = ani.changes[p] {
-                ani.changeFunction?(p, initial + change)
+               let amount = ani.changes[p] {
+                change(ani, p, initial + amount)
             }
         }
         ani.isAnimating = false
