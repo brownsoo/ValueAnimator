@@ -24,17 +24,16 @@ animator.resume()
 
 #### Thread
 
-ValueAnimator uses its own work-thread. Since the callback 'onChanged' is called in work-thread, you have to change UIView property in Main-thread.
+ValueAnimator uses its own work-thread. But the callback 'onChanged' is called in main-thread. if you wanna it called in work-thread, you just set the 'callbackOnMainThread' property is false.
 
 ```
 let someView: UIView!
 let animator = ValueAnimator.animate("some", from: 0, to: 1, duration: 1.0,
     onChanged: { p, v in 
-        DispatchQueue.main.async {
-            self.someView.alpha = v.value
-        }
+        // called in ValueAnimator's work-thread
     },
     easing: EaseCircular.easeIn())
+animator.callbackOnMainThread = false
 animator.resume()
 ```
 

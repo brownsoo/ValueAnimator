@@ -90,6 +90,8 @@ public class ValueAnimator: Hashable {
         return self.objectIdentifier.hashValue
     }
 
+    public var callbackOnMainThread: Bool = true
+
     public static func ==(left: ValueAnimator, right: ValueAnimator) -> Bool {
         return left.objectIdentifier == right.objectIdentifier
     }
@@ -259,9 +261,9 @@ public class ValueAnimator: Hashable {
                 if ani.repeatCount <= 0 || ani.repeatCount > ani.counted || ani.isInfinitely {
                     for p in ani.props {
                         if let initial = ani.initials[p],
-                           let change = ani.changes[p] {
-                            let changed = initial + change
-                            ani.changeFunction?(p, changed)
+                           let changeEnd = ani.changes[p] {
+                            let changed = initial + changeEnd
+                            change(ani, p, changed)
                             ani.initials[p] = changed
                             ani.changes[p]! *= -1.0
                         }
@@ -274,7 +276,7 @@ public class ValueAnimator: Hashable {
             if ani.counted < ani.repeatCount || ani.isInfinitely {
                 for p in ani.props {
                     if let initial = ani.initials[p] {
-                        ani.changeFunction?(p, initial)
+                        change(ani, p, initial)
                     }
                 }
                 ani.startTime = nowTime
@@ -286,11 +288,20 @@ public class ValueAnimator: Hashable {
         } else {
             // call updates in progress
             for p in ani.props {
-                ani.changeFunction?(p, ani.easing(ani.covered, ani.initials[p]!.value, ani.changes[p]!.value, ani.duration).toAnimatable())
+                change(ani, p, ani.easing(ani.covered, ani.initials[p]!.value, ani.changes[p]!.value, ani.duration).toAnimatable())
             }
         }
     }
 
+    static private func change(_ ani: ValueAnimator, _ p: String, _ v: ValueAnimatable) {
+        if ani.callbackOnMainThread {
+            DispatchQueue.main.async {
+                ani.changeFunction?(p, v)
+            }
+        } else {
+            ani.changeFunction?(p, v)
+        }
+    }
 
     /// finish animation and update value with target
     static private func finish(_ ani: ValueAnimator) {
@@ -303,7 +314,13 @@ public class ValueAnimator: Hashable {
         }
         ani.isAnimating = false
         ani.isFinished = true
-        ani.endFunction?()
+        if ani.callbackOnMainThread {
+            DispatchQueue.main.async {
+                ani.endFunction?()
+            }
+        } else {
+            ani.endFunction?()
+        }
     }
 
     /// finish animation during animation
