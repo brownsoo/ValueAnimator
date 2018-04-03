@@ -24,7 +24,7 @@ animator.resume()
 
 #### Thread
 
-ValueAnimator uses its own work-thread. But the callback 'onChanged' is called in main-thread. if you wanna it called in work-thread, you just set the 'callbackOnMainThread' property is false.
+ValueAnimator uses its own work-thread. But the callback 'ChangeFunction', 'EndFunction' is called in main-thread. if you wanna it called in work-thread, you just set the 'callbackOnMainThread' property is false.
 
 ```
 let someView: UIView!
