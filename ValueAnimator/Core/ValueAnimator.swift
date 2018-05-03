@@ -139,6 +139,7 @@ public class ValueAnimator: Hashable {
         aniList.removeAll()
     }
 
+    @discardableResult
     static public func animate(_ prop: String,
                                from: AnimatableValueType,
                                to: AnimatableValueType,
@@ -152,9 +153,26 @@ public class ValueAnimator: Hashable {
                        onChanged: onChanged,
                        easing: easing,
                        option: nil,
-                       endFunction: nil)
+                       onEnd: nil)
     }
-
+    
+    @discardableResult
+    static public func animate(_ prop: String,
+                               from: AnimatableValueType,
+                               to: AnimatableValueType,
+                               duration: TimeInterval,
+                               onChanged: ChangeFunction? = nil) -> ValueAnimator {
+        return animate(props: [prop],
+                       from: [from],
+                       to: [to],
+                       duration: duration,
+                       onChanged: onChanged,
+                       easing: nil,
+                       option: nil,
+                       onEnd: nil)
+    }
+    
+    @discardableResult
     static public func animate(_ prop: String,
                                from: AnimatableValueType,
                                to: AnimatableValueType,
@@ -169,9 +187,10 @@ public class ValueAnimator: Hashable {
                        onChanged: onChanged,
                        easing: easing,
                        option: option,
-                       endFunction: nil)
+                       onEnd: nil)
     }
 
+    @discardableResult
     static public func animate(props: [String],
                                from: [AnimatableValueType],
                                to: [AnimatableValueType],
@@ -179,7 +198,7 @@ public class ValueAnimator: Hashable {
                                onChanged: ChangeFunction? = nil,
                                easing: Easing? = nil,
                                option: Option? = nil,
-                               endFunction: EndFunction? = nil) -> ValueAnimator {
+                               onEnd: EndFunction? = nil) -> ValueAnimator {
         let ani = ValueAnimator()
         ani.props = props
         for (i, p) in props.enumerated() {
@@ -188,7 +207,7 @@ public class ValueAnimator: Hashable {
         }
         ani.duration = duration
         ani.easing = easing ?? EaseLinear.easeNone()
-        ani.endFunction = endFunction
+        ani.endFunction = onEnd
         if let option = option {
             ani.yoyo = option.yoyo
             ani.repeatCount = option.repeatCount
