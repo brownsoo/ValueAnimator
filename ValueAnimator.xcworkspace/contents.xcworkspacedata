@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:ValueAnimatorExample/ValueAnimatorExample.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:ValueAnimator.xcodeproj">
    </FileRef>
    <FileRef
