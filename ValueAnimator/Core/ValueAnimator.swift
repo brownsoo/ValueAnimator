@@ -139,6 +139,10 @@ public class ValueAnimator: Hashable {
         aniList.removeAll()
     }
 
+    static public func hasAnimation(_ prop: String) -> Bool {
+        return aniList.first{ $0.props.contains(prop) } != nil
+    }
+
     @discardableResult
     static public func animate(_ prop: String,
                                from: AnimatableValueType,
