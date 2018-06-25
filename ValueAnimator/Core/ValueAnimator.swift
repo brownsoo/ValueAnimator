@@ -56,7 +56,6 @@ public class ValueAnimator: Hashable {
     private var initials = [String: ValueAnimatable]()
     private var changes = [String: ValueAnimatable]()
     private var duration: TimeInterval = 1
-    private var easing: Easing!
 
     /// seconds in covered on timeline
     private var covered: TimeInterval = 0
@@ -72,6 +71,17 @@ public class ValueAnimator: Hashable {
 #if DEBUG
             print("ValueAnimator--- counted: \(counted)")
 #endif
+        }
+    }
+    private lazy var easingCapture: Easing = EaseSine.easeInOut()
+    public var easing: Easing! {
+        set {
+            if !isAnimating {
+                easingCapture = newValue
+            }
+        }
+        get {
+            return easingCapture
         }
     }
     /// whether if it repeat infinitely or not.
@@ -148,14 +158,14 @@ public class ValueAnimator: Hashable {
                                from: AnimatableValueType,
                                to: AnimatableValueType,
                                duration: TimeInterval,
-                               onChanged: ChangeFunction? = nil,
-                               easing: Easing? = nil) -> ValueAnimator {
+                               easing: Easing? = nil,
+                               onChanged: ChangeFunction? = nil) -> ValueAnimator {
         return animate(props: [prop],
                        from: [from],
                        to: [to],
                        duration: duration,
-                       onChanged: onChanged,
                        easing: easing,
+                       onChanged: onChanged,
                        option: nil,
                        onEnd: nil)
     }
@@ -170,8 +180,8 @@ public class ValueAnimator: Hashable {
                        from: [from],
                        to: [to],
                        duration: duration,
-                       onChanged: onChanged,
                        easing: nil,
+                       onChanged: onChanged,
                        option: nil,
                        onEnd: nil)
     }
@@ -181,15 +191,15 @@ public class ValueAnimator: Hashable {
                                from: AnimatableValueType,
                                to: AnimatableValueType,
                                duration: TimeInterval,
-                               onChanged: ChangeFunction? = nil,
                                easing: Easing? = nil,
+                               onChanged: ChangeFunction? = nil,
                                option: Option? = nil) -> ValueAnimator {
         return animate(props: [prop],
                        from: [from],
                        to: [to],
                        duration: duration,
-                       onChanged: onChanged,
                        easing: easing,
+                       onChanged: onChanged,
                        option: option,
                        onEnd: nil)
     }
@@ -199,8 +209,8 @@ public class ValueAnimator: Hashable {
                                from: [AnimatableValueType],
                                to: [AnimatableValueType],
                                duration: TimeInterval,
-                               onChanged: ChangeFunction? = nil,
                                easing: Easing? = nil,
+                               onChanged: ChangeFunction? = nil,
                                option: Option? = nil,
                                onEnd: EndFunction? = nil) -> ValueAnimator {
         let ani = ValueAnimator()
@@ -210,7 +220,9 @@ public class ValueAnimator: Hashable {
             ani.changes[p] = to[i].toAnimatable() - from[i].toAnimatable()
         }
         ani.duration = duration
-        ani.easing = easing ?? EaseLinear.easeNone()
+        if let easingFn = easing {
+            ani.easing = easingFn
+        }
         ani.endFunction = onEnd
         if let option = option {
             ani.yoyo = option.yoyo
