@@ -75,22 +75,26 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
         print("viewDidAppear")
         
-        ValueAnimator.animate("count", from: 0, to: 30, duration: 30) { p, v in
+        ValueAnimator.animate("count", from: 0, to: 30, duration: 30, easing: nil) { p, v in
             let intValue = Int(v.value)
             self.countLb.text = "\(intValue)"
             }.resume()
         
-        ValueAnimator.animate("rect1", from: 30, to: 150, duration: 1.4, onChanged: { p, v in
+        ValueAnimator.animate("rect1", from: 30, to: 150, duration: 1.4,
+                              easing: EaseSine.easeInOut(),
+                              onChanged: { p, v in
             self.rect1.frame = CGRect(x: 24, y: 140, width:v.cg, height:20)
-        }, easing: EaseSine.easeInOut(),
+        },
            option: ValueAnimator.OptionBuilder().setYoyo(true).build())
         .resume()
         
         rect2Ani =
-        ValueAnimator.animate("rect2", from: 30, to: 150, duration: 1.4, onChanged: { p, v in
+        ValueAnimator.animate("rect2", from: 30, to: 150, duration: 1.4,
+                              easing: EaseSine.easeInOut(),
+                              onChanged: { p, v in
             self.rect2.frame.origin = CGPoint(x: v.cg, y: 190)
             self.rect2Lb.text = "\(self.rect2Ani.counted)"
-        }, easing: EaseSine.easeInOut(),
+        },
            option: ValueAnimator.OptionBuilder().setRepeatCount(5).build())
         rect2Ani.resume()
         
