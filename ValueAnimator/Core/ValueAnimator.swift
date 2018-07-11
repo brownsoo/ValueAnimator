@@ -129,7 +129,7 @@ public class ValueAnimator: Hashable {
     // MARK: class values
 
     static public var debug = false
-    static public var frameRate: Int = 50 {
+    static public var frameRate: Int = 60 {
         didSet {
             sleepTime = 1 / Double(frameRate)
         }
@@ -258,7 +258,8 @@ public class ValueAnimator: Hashable {
                 update(ani)
             }
             Thread.sleep(forTimeInterval: sleepTime)
-            if Thread.main.isFinished {
+            
+            if renderer != nil && renderer!.isFinished {
                 print("ValueAnimator is finished because main thread is finished")
                 Thread.exit()
             }
