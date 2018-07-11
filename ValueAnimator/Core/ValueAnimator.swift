@@ -129,7 +129,7 @@ public class ValueAnimator: Hashable {
     // MARK: class values
 
     static public var debug = false
-    static public var frameRate: Int = 60 {
+    static public var frameRate: Int = 40 {
         didSet {
             sleepTime = 1 / Double(frameRate)
         }
