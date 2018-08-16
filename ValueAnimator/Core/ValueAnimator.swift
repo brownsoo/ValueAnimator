@@ -69,7 +69,7 @@ public class ValueAnimator: Hashable {
     public private(set) var counted: Int = 0 {
         didSet {
 #if DEBUG
-            print("ValueAnimator--- counted: \(counted)")
+            print("ValueAnimator--- \(hashValue) counted: \(counted)")
 #endif
         }
     }
@@ -125,17 +125,20 @@ public class ValueAnimator: Hashable {
         isDisposed = true
     }
 
-
-    // MARK: class values
+    // MARK: static values
 
     static public var debug = false
     static public var frameRate: Int = 40 {
         didSet {
             sleepTime = 1 / Double(frameRate)
+            if timer != nil {
+                timer = nil
+                fire()
+            }
         }
     }
     static private var nowTime: TimeInterval = 0
-    static private var renderer: Thread? = nil
+    static private var timer: RenderTimer?
     static private var aniList = Set<ValueAnimator>()
     static private var sleepTime: TimeInterval = 0.02
 
@@ -240,15 +243,21 @@ public class ValueAnimator: Hashable {
         if debug {
             print("ValueAnimator -----------: aniList added id: \(ani.hashValue)")
         }
-        // start runLoop if not running
-        if renderer == nil || renderer?.isFinished == true {
-            renderer = Thread(target: self, selector: #selector(onProgress), object: nil)
-            renderer?.name = "renderer"
-            renderer?.qualityOfService = .default
-            renderer?.start()
-        }
+        fire()
 
         return ani
+    }
+    
+    static private func fire() {
+        // start runLoop if not running
+        if timer == nil {
+            timer = RenderTimer(timeInterval: sleepTime)
+            timer?.eventHandler = onProgress
+        }
+
+        if timer!.state == .suspended {
+            timer?.resume()
+        }
     }
 
     @objc
@@ -257,17 +266,14 @@ public class ValueAnimator: Hashable {
             for ani in aniList {
                 update(ani)
             }
-            Thread.sleep(forTimeInterval: sleepTime)
-            
-            if renderer != nil && renderer!.isFinished {
-                print("ValueAnimator is finished because main thread is finished")
-                Thread.exit()
+        }
+        if aniList.count == 0 {
+            timer?.suspend()
+            if debug {
+                print("timer.state -> \(timer?.state.rawValue ?? "nil")")
+                print("ValueAnimator nothing to animate")
             }
         }
-        if debug {
-            print("ValueAnimator nothing to animate")
-        }
-        Thread.exit()
     }
 
     static private func update(_ ani: ValueAnimator) {
@@ -279,7 +285,7 @@ public class ValueAnimator: Hashable {
             finish(ani)
             return
         }
-        nowTime = Date().timeIntervalSince1970
+        nowTime = Date().timeIntervalSince1970 // FIXME: do not create new one.
         if !ani.isAnimating {
             ani.startTime = nowTime - ani.covered * 1000.0
             return

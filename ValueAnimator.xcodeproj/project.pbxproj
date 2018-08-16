@@ -55,6 +55,13 @@
 		170DFDF8206C6958002C5042 /* XCTest+Compatibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170DFDF6206C6958002C5042 /* XCTest+Compatibility.swift */; };
 		170DFDF9206C6958002C5042 /* XCTest+Compatibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170DFDF6206C6958002C5042 /* XCTest+Compatibility.swift */; };
 		172537CD206A12B700F61CBB /* Easing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172537CC206A12B700F61CBB /* Easing.swift */; };
+		17549B2021253ECB0039F4F2 /* RenderTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17549B1F21253ECB0039F4F2 /* RenderTimer.swift */; };
+		17549B2121253ECB0039F4F2 /* RenderTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17549B1F21253ECB0039F4F2 /* RenderTimer.swift */; };
+		17549B2221253ECB0039F4F2 /* RenderTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17549B1F21253ECB0039F4F2 /* RenderTimer.swift */; };
+		17549B2321253ECB0039F4F2 /* RenderTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17549B1F21253ECB0039F4F2 /* RenderTimer.swift */; };
+		17549B2421253ECB0039F4F2 /* RenderTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17549B1F21253ECB0039F4F2 /* RenderTimer.swift */; };
+		17549B2521253ECB0039F4F2 /* RenderTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17549B1F21253ECB0039F4F2 /* RenderTimer.swift */; };
+		17549B2621253ECB0039F4F2 /* RenderTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17549B1F21253ECB0039F4F2 /* RenderTimer.swift */; };
 		176B392620589EB100F0DF06 /* ValueAnimator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 176B391C20589EB100F0DF06 /* ValueAnimator.framework */; };
 		176B392D20589EB100F0DF06 /* ValueAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = 176B391F20589EB100F0DF06 /* ValueAnimator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		176B393820589F5800F0DF06 /* ValueAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B393720589F5800F0DF06 /* ValueAnimator.swift */; };
@@ -114,6 +121,7 @@
 		170DFDC3206B6182002C5042 /* ValueAnimator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ValueAnimator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		170DFDF6206C6958002C5042 /* XCTest+Compatibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTest+Compatibility.swift"; sourceTree = "<group>"; };
 		172537CC206A12B700F61CBB /* Easing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Easing.swift; sourceTree = "<group>"; };
+		17549B1F21253ECB0039F4F2 /* RenderTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderTimer.swift; sourceTree = "<group>"; };
 		176B391C20589EB100F0DF06 /* ValueAnimator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ValueAnimator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		176B391F20589EB100F0DF06 /* ValueAnimator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ValueAnimator.h; sourceTree = "<group>"; };
 		176B392020589EB100F0DF06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -266,6 +274,7 @@
 		176B393620589F1800F0DF06 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				17549B1F21253ECB0039F4F2 /* RenderTimer.swift */,
 				172537CC206A12B700F61CBB /* Easing.swift */,
 				176B393720589F5800F0DF06 /* ValueAnimator.swift */,
 				179766A82073020000D008F9 /* ValueAnimatable.swift */,
@@ -477,8 +486,6 @@
 				176B39472058A8C700F0DF06 /* Sources */,
 				176B39482058A8C700F0DF06 /* Frameworks */,
 				176B39492058A8C700F0DF06 /* Resources */,
-				FC1FF0DE847F925BA10E1911 /* [CP] Embed Pods Frameworks */,
-				C5CACFFD6C0ACF96D115B464 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -636,36 +643,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C5CACFFD6C0ACF96D115B464 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftLintIntegration/Pods-SwiftLintIntegration-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FC1FF0DE847F925BA10E1911 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftLintIntegration/Pods-SwiftLintIntegration-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -686,6 +663,7 @@
 				170DFDF1206B6367002C5042 /* EaseCircular.swift in Sources */,
 				170DFDF2206B6367002C5042 /* EaseLinear.swift in Sources */,
 				170DFDF3206B6367002C5042 /* Easing.swift in Sources */,
+				17549B2221253ECB0039F4F2 /* RenderTimer.swift in Sources */,
 				170DFDF4206B6367002C5042 /* ValueAnimator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -694,6 +672,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17549B2321253ECB0039F4F2 /* RenderTimer.swift in Sources */,
 				170DFDE7206B6355002C5042 /* PropertyTests.swift in Sources */,
 				170DFDF8206C6958002C5042 /* XCTest+Compatibility.swift in Sources */,
 				179766AC2073020000D008F9 /* ValueAnimatable.swift in Sources */,
@@ -717,6 +696,7 @@
 				170DFDE3206B6348002C5042 /* EaseCircular.swift in Sources */,
 				170DFDE4206B6348002C5042 /* EaseLinear.swift in Sources */,
 				170DFDE5206B6348002C5042 /* Easing.swift in Sources */,
+				17549B2421253ECB0039F4F2 /* RenderTimer.swift in Sources */,
 				170DFDE6206B6348002C5042 /* ValueAnimator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -725,6 +705,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17549B2521253ECB0039F4F2 /* RenderTimer.swift in Sources */,
 				170DFDD8206B6321002C5042 /* PropertyTests.swift in Sources */,
 				170DFDF9206C6958002C5042 /* XCTest+Compatibility.swift in Sources */,
 				179766AE2073020000D008F9 /* ValueAnimatable.swift in Sources */,
@@ -748,6 +729,7 @@
 				170DFDD4206B62E1002C5042 /* EaseCircular.swift in Sources */,
 				170DFDD5206B62E1002C5042 /* EaseLinear.swift in Sources */,
 				170DFDD6206B62E1002C5042 /* Easing.swift in Sources */,
+				17549B2621253ECB0039F4F2 /* RenderTimer.swift in Sources */,
 				170DFDD7206B62E1002C5042 /* ValueAnimator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -769,6 +751,7 @@
 				172537CD206A12B700F61CBB /* Easing.swift in Sources */,
 				176B3961205B936300F0DF06 /* EaseBounce.swift in Sources */,
 				176B3960205B936300F0DF06 /* EaseSine.swift in Sources */,
+				17549B2021253ECB0039F4F2 /* RenderTimer.swift in Sources */,
 				176B3964205B936300F0DF06 /* EaseExponential.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -777,6 +760,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17549B2121253ECB0039F4F2 /* RenderTimer.swift in Sources */,
 				170DFDF5206B6379002C5042 /* PropertyTests.swift in Sources */,
 				170DFDF7206C6958002C5042 /* XCTest+Compatibility.swift in Sources */,
 				179766AA2073020000D008F9 /* ValueAnimatable.swift in Sources */,
