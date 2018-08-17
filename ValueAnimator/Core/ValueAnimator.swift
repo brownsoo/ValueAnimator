@@ -244,7 +244,7 @@ public class ValueAnimator: Hashable {
         if renderer == nil || renderer?.isFinished == true {
             renderer = Thread(target: self, selector: #selector(onProgress), object: nil)
             renderer?.name = "renderer"
-            renderer?.qualityOfService = .default
+            renderer?.qualityOfService = .userInteractive
             renderer?.start()
         }
 
