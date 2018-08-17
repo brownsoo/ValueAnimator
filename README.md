@@ -45,8 +45,6 @@ animator.resume()
 To run the example project, clone the repo, and run `open ValueAnimator.xcworkspace`. 
 You can see ValueAnimatorExample project.
 
-## Requirements
-
 ## Installation
 
 ValueAnimator is available through [CocoaPods](http://cocoapods.org). To install
