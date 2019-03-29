@@ -53,13 +53,16 @@ extension ValueAnimatable {
 }
 
 extension ValueAnimatable: Hashable {
+
     public static func ==(lhs: ValueAnimatable, rhs: ValueAnimatable) -> Bool {
         return lhs.value == rhs.value
     }
-
-    public var hashValue: Int {
-        return timeInterval.hashValue
+    #if swift(<4.0)
+    var hashValue: Int {
+        return self.timeInterval
     }
+    #endif
+
 }
 
 extension ValueAnimatable {

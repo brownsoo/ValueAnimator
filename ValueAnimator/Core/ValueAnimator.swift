@@ -51,6 +51,27 @@ public class ValueAnimator: Hashable {
     public typealias ChangeFunction = (String, ValueAnimatable) -> Void
 
     private lazy var objectIdentifier = ObjectIdentifier(self)
+
+    #if swift(>=5.0)
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(objectIdentifier)
+    }
+    #elseif swift(>=4.2)
+        #if compiler(>=5.0)
+        public func hash(into hasher: inout Hasher) {
+            hasher.combine(objectIdentifier)
+        }
+        #else
+        var hashValue: Int {
+            return self.objectIdentifier.hashValue
+        }
+        #endif
+    #else
+    public var hashValue: Int {
+        return self.objectIdentifier.hashValue
+    }
+    #endif
+
     private var props = [String]()
     private var startTime: TimeInterval = 0
     private var initials = [String: ValueAnimatable]()
@@ -95,10 +116,6 @@ public class ValueAnimator: Hashable {
     public var changeFunction: ChangeFunction? = nil
     /// callback for animation finishes
     public var endFunction: EndFunction? = nil
-
-    public var hashValue: Int {
-        return self.objectIdentifier.hashValue
-    }
 
     public var callbackOnMainThread: Bool = true
 

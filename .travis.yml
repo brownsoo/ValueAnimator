@@ -25,17 +25,26 @@ env:
 matrix:
   include:
     - osx_image: xcode9
-      env: SCHEME="macOS"  SDK="macosx10.13"          DESTINATION="arch=x86_64"                    SWIFT_VERSION="4.0"
-    - osx_image: xcode9
-      env: SCHEME="iOS"    SDK="iphonesimulator11.0"  DESTINATION="OS=11.0,name=iPhone 8"          SWIFT_VERSION="4.0"
-    - osx_image: xcode9
-      env: SCHEME="tvOS"   SDK="appletvsimulator11.0"  DESTINATION="OS=11.0,name=Apple TV 1080p"   SWIFT_VERSION="4.0"
+      env: SCHEME="macOS"  SDK="macosx10.13"          DESTINATION="arch=x86_64"                    SWIFT_VERSION="4.0" ACTION="test"
+    - osx_image: xcode9.3
+      env: SCHEME="macOS"  SDK="macosx10.13"          DESTINATION="arch=x86_64"                    SWIFT_VERSION="4.1" ACTION="test"
+    - osx_image: xcode10.1
+      env: SCHEME="macOS"  SDK="macosx10.14"          DESTINATION="arch=x86_64"                    SWIFT_VERSION="4.2" ACTION="test"
+    - osx_image: xcode10.2
+      env: SCHEME="macOS"  SDK="macosx10.14"          DESTINATION="arch=x86_64"                    SWIFT_VERSION="4.2" ACTION="test"
+    - osx_image: xcode10.2
+      env: SCHEME="macOS"  SDK="macosx10.14"          DESTINATION="arch=x86_64"                    SWIFT_VERSION="5.0" ACTION="test"
+    - osx_image: xcode10.2
+      env: SCHEME="iOS"    SDK="iphonesimulator"      DESTINATION="OS=12.2,name=iPhone 8"          SWIFT_VERSION="4.2" ACTION="test"
+    - osx_image: xcode10.2
+      env: SCHEME="tvOS"   SDK="appletvsimulator"     DESTINATION="OS=12.2,name=Apple TV 4K"       SWIFT_VERSION="4.2" ACTION="test"
 
 script:
   - set -o pipefail
   - xcodebuild -version
   - xcodebuild -showsdks
   - xcodebuild
+    "$ACTION"
     -workspace "$FRAMEWORK_NAME.xcworkspace"
     -scheme "$FRAMEWORK_NAME-$SCHEME"
     -sdk "$SDK"
@@ -45,7 +54,6 @@ script:
     GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES
     GCC_GENERATE_TEST_COVERAGE_FILES=YES
     SWIFT_VERSION=$SWIFT_VERSION
-    test
 
 #after_success:
 #  - bash <(curl -s https://codecov.io/bash) -J ValueAnimator
