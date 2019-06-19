@@ -156,6 +156,10 @@ public class ValueAnimator: Hashable {
     static private var aniList = Set<ValueAnimator>()
     static private var sleepTime: TimeInterval = 0.02
 
+    static public var count: Int {
+        return aniList.count
+    }
+
     static public func finishAll() {
         aniList.forEach {
             $0.finish()
@@ -270,16 +274,17 @@ public class ValueAnimator: Hashable {
 
     @objc
     static private func onProgress() {
-        while aniList.count > 0 {
-            for ani in aniList {
+
+        while renderer != nil && !renderer!.isFinished {
+            let list = aniList
+            if list.isEmpty {
+                Thread.exit()
+                break
+            }
+            for ani in list {
                 update(ani)
             }
             Thread.sleep(forTimeInterval: sleepTime)
-            
-            if renderer != nil && renderer!.isFinished {
-                print("ValueAnimator is finished because main thread is finished")
-                Thread.exit()
-            }
         }
         if debug {
             print("ValueAnimator nothing to animate")
