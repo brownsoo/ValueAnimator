@@ -4,6 +4,8 @@
 # any of the actual ReSwift targets dirty or bloated a dummy target called
 # SwiftLintIntegration has been added.
 
+platform :ios
+
 target 'SwiftLintIntegration' do
   pod 'SwiftLint'
 end
