@@ -303,7 +303,7 @@ public class ValueAnimator: Hashable {
         }
         nowTime = Date().timeIntervalSince1970
         if !ani.isAnimating {
-            ani.startTime = nowTime - ani.covered * 1000.0
+            ani.startTime = nowTime - ani.covered 
             return
         }
         if ani.delay > 0 {
