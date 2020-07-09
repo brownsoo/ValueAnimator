@@ -89,9 +89,9 @@ public class ValueAnimator: Hashable {
     /// animated count
     public private(set) var counted: Int = 0 {
         didSet {
-#if DEBUG
-            print("ValueAnimator--- counted: \(counted)")
-#endif
+            if ValueAnimator.debug {
+                print("ValueAnimator- \(props)-- counted: \(counted)")
+            }
         }
     }
     private lazy var easingCapture: Easing = EaseSine.easeInOut()
@@ -113,9 +113,15 @@ public class ValueAnimator: Hashable {
     public private(set) var isDisposed = false
 
     /// callback for animation updates
+    @available(*, deprecated, renamed: "changeCallback")
     public var changeFunction: ChangeFunction? = nil
+    /// callback for animation updates
+    public var changeCallback: ChangeFunction? = nil
     /// callback for animation finishes
+    @available(*, deprecated, renamed: "endCallback")
     public var endFunction: EndFunction? = nil
+    /// callback for animation finishes
+    public var endCallback: EndFunction? = nil
 
     public var callbackOnMainThread: Bool = true
 
@@ -155,7 +161,8 @@ public class ValueAnimator: Hashable {
     static private var renderer: Thread? = nil
     static private var aniList = Set<ValueAnimator>()
     static private var sleepTime: TimeInterval = 0.02
-
+    static private let lock = NSRecursiveLock()
+    
     static public var count: Int {
         return aniList.count
     }
@@ -244,7 +251,7 @@ public class ValueAnimator: Hashable {
         if let easingFn = easing {
             ani.easing = easingFn
         }
-        ani.endFunction = onEnd
+        ani.endCallback = onEnd
         if let option = option {
             ani.yoyo = option.yoyo
             ani.repeatCount = option.repeatCount
@@ -254,7 +261,7 @@ public class ValueAnimator: Hashable {
         if ani.yoyo && ani.repeatCount > 0 {
             ani.repeatCount *= 2
         }
-        ani.changeFunction = onChanged
+        ani.changeCallback = onChanged
         ani.startTime = Date().timeIntervalSince1970
 
         aniList.insert(ani)
@@ -354,10 +361,10 @@ public class ValueAnimator: Hashable {
     static private func change(_ ani: ValueAnimator, _ p: String, _ v: ValueAnimatable) {
         if ani.callbackOnMainThread {
             DispatchQueue.main.async {
-                ani.changeFunction?(p, v)
+                ani.changeCallback?(p, v)
             }
         } else {
-            ani.changeFunction?(p, v)
+            ani.changeCallback?(p, v)
         }
     }
 
@@ -374,10 +381,10 @@ public class ValueAnimator: Hashable {
         ani.isFinished = true
         if ani.callbackOnMainThread {
             DispatchQueue.main.async {
-                ani.endFunction?()
+                ani.endCallback?()
             }
         } else {
-            ani.endFunction?()
+            ani.endCallback?()
         }
     }
 
