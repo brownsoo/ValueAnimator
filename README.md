@@ -19,7 +19,7 @@ ValueAnimator makes the transition from initial value to target value using easi
 
 #### Simple animation
 
-```
+```swift
 let animator = ValueAnimator.animate("some", from: 0, to: 360, duration: 1.0,
     onChanged: { p, v in 
         print("property \(p): \(v.value)")
@@ -28,11 +28,36 @@ let animator = ValueAnimator.animate("some", from: 0, to: 360, duration: 1.0,
 animator.resume()
 ```
 
+#### Yoyo annimation with 2 values
+
+```swift
+let yoyoAni = ValueAnimator.animate(
+    props: ["h", "w"], 
+    from: [20, 30], 
+    to: [5, 150], 
+    duration: 1.4, 
+    easing: EaseSine.easeInOut(), 
+    onChanged: { p, v in
+        if p == "h" {
+            let width = self.rect1.bounds.width
+            self.rect1.frame = CGRect(x: 24, y: 140, width: width, height:v.cg)
+        } else {
+            let height = self.rect1.bounds.height
+            self.rect1.frame = CGRect(x: 24, y: 140, width:v.cg, height: height)
+        }
+    }, 
+    option: ValueAnimator.OptionBuilder()
+        .setYoyo(true)
+        .build())
+yoyoAni.resume()
+```
+
+
 #### Thread
 
 ValueAnimator uses its own work-thread. But the callback 'ChangeFunction', 'EndFunction' is called in main-thread. if you wanna it called in work-thread, you just set the 'callbackOnMainThread' property is false.
 
-```
+```swift
 let someView: UIView!
 let animator = ValueAnimator.animate("some", from: 0, to: 1, duration: 1.0,
     onChanged: { p, v in 
