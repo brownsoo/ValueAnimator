@@ -264,7 +264,10 @@ public class ValueAnimator: Hashable {
         ani.changeCallback = onChanged
         ani.startTime = Date().timeIntervalSince1970
 
+        lock.lock()
         aniList.insert(ani)
+        lock.unlock()
+        
         if debug {
             print("ValueAnimator -----------: aniList added id: \(ani.hashValue)")
         }
@@ -283,7 +286,9 @@ public class ValueAnimator: Hashable {
     static private func onProgress() {
 
         while renderer != nil && !renderer!.isFinished {
+            lock.lock()
             let list = aniList
+            lock.unlock()
             if list.isEmpty {
                 Thread.exit()
                 break
