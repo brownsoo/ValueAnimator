@@ -30,8 +30,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ValueAnimator.debug = true
+        if #available(iOS 13.0, *) {
+            view.backgroundColor = UIColor.systemBackground
+        }
         let parent = self.view!
-        
         var label = UILabel()
         parent.addSubview(label)
         label.font = UIFont.systemFont(ofSize: 12)
@@ -49,7 +51,7 @@ class ViewController: UIViewController {
         label = UILabel()
         parent.addSubview(label)
         label.font = UIFont.systemFont(ofSize: 12)
-        label.text = "* yoyo animation: from 30 to 150"
+        label.text = "* yoyo animation with 2 props"
         label.frame = CGRect(x: 24, y: 120, width: 100, height: 100)
         label.sizeToFit()
         parent.addSubview(rect1)
@@ -78,8 +80,7 @@ class ViewController: UIViewController {
         rect2Lb.font = UIFont.systemFont(ofSize: 12)
         rect2Lb.frame = CGRect(x: 0, y: 0, width: 30, height: 20)
         rect2.addSubview(rect2Lb)
-
-
+        
         label = UILabel()
         parent.addSubview(label)
         label.font = UIFont.systemFont(ofSize: 12)
@@ -95,7 +96,7 @@ class ViewController: UIViewController {
         newBt.layer.borderColor = UIColor.blue.cgColor
         newBt.layer.borderWidth = 1.0
         newBt.addTarget(self, action: #selector(onClickNew), for: .touchUpInside)
-
+        
         remainLb = UILabel()
         parent.addSubview(remainLb)
         remainLb.frame = CGRect(x: 24, y: 340, width: parent.bounds.width - 48, height: 20)
@@ -106,36 +107,39 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("viewDidAppear")
-        
-        let ani = ValueAnimator.animate("count", from: 0, to: 30, duration: 10, easing: EaseLinear.easeNone()) { p, v in
+        // linear
+        let ani = ValueAnimator.animate("count", from: 0, to: 30, duration: 10, easing: EaseLinear.easeNone())
+        ani.changeCallback = { p, v in
             let intValue = Int(v.value)
-            self.countLb.text = "\(intValue)"
-            }
-        ani.endFunction = {
+            let progress = ani.covered / ani.duration
+            self.countLb.text = "\(intValue) / progress: \(String(format: "%.2f", progress))"
+        }
+        ani.endCallback = {
             self.updateRemainedCount()
         }
         ani.resume()
-        // yoyo
-        yoyoAni = ValueAnimator.animate("rect1", from: 30, to: 150, duration: 1.4,
-                              easing: EaseSine.easeInOut(),
-                              onChanged: { p, v in
-            self.rect1.frame = CGRect(x: 24, y: 140, width:v.cg, height:20)
+        // yoyo with 2 props
+        yoyoAni = ValueAnimator.animate(props: ["h", "w"], from: [20, 30], to: [5, 150], duration: 1.4, easing: EaseSine.easeInOut(), onChanged: { p, v in
+            if p == "h" {
+                let width = self.rect1.bounds.width
+                self.rect1.frame = CGRect(x: 24, y: 140, width: width, height:v.cg)
+            } else {
+                let height = self.rect1.bounds.height
+                self.rect1.frame = CGRect(x: 24, y: 140, width:v.cg, height: height)
+            }
         }, option: ValueAnimator.OptionBuilder().setYoyo(true).build())
         yoyoAni.resume()
         
         // repeat
-        rect2Ani = ValueAnimator.animate("rect2", from: 30, to: 150, duration: 1.4,
-                              easing: EaseSine.easeInOut(),
-                              onChanged: { p, v in
+        rect2Ani = ValueAnimator.animate("rect2", from: 30, to: 150, duration: 1.4, easing: EaseSine.easeInOut(), onChanged: { p, v in
             self.rect2.frame.origin = CGPoint(x: v.cg, y: 220)
             self.rect2Lb.text = "\(self.rect2Ani.counted)"
         }, option: ValueAnimator.OptionBuilder().setRepeatCount(5).build())
         rect2Ani.resume()
-        rect2Ani.endFunction = {
+        rect2Ani.endCallback = {
             self.updateRemainedCount()
         }
-
+        
         self.updateRemainedCount()
     }
     
@@ -147,21 +151,21 @@ class ViewController: UIViewController {
             yoyoAni.resume()
         }
     }
-
+    
     var newCount = 0
     @objc
     private func onClickNew(_ sender: UIButton) {
         newCount += 1
         let prof = "new\(newCount)"
         let ani = ValueAnimator.animate(prof, from: 0, to: 100, duration: 3.0)
-        ani.endFunction = {
+        ani.endCallback = {
             print("finished \(prof)")
             self.updateRemainedCount()
         }
         ani.resume()
         updateRemainedCount()
     }
-
+    
     private func updateRemainedCount() {
         self.remainLb.text = "Remaind Animator count: \(ValueAnimator.count)"
     }
