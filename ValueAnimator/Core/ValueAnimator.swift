@@ -76,12 +76,12 @@ public class ValueAnimator: Hashable {
     private var startTime: TimeInterval = 0
     private var initials = [String: ValueAnimatable]()
     private var changes = [String: ValueAnimatable]()
-    private var duration: TimeInterval = 1
-
+    /// animation duration of one cycle in seconds
+    public private(set) var duration: TimeInterval = 1
     /// seconds in covered on timeline
-    private var covered: TimeInterval = 0
+    public private(set) var covered: TimeInterval = 0
     /// seconds to delay
-    private var delay: TimeInterval = 0
+    public private(set) var delay: TimeInterval = 0
     /// yoyo animation
     public private(set) var yoyo = false
     /// how many it repeat animation.
