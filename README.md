@@ -55,7 +55,7 @@ yoyoAni.resume()
 
 #### Thread
 
-ValueAnimator uses its own work-thread. But the callback 'ChangeFunction', 'EndFunction' is called in main-thread. if you wanna it called in work-thread, you just set the 'callbackOnMainThread' property is false.
+ValueAnimator uses its own work-thread. But the callback `changeCallback`, `endCallback` is called in main-thread. if you wanna it called in work-thread, you just set the 'callbackOnMainThread' property is false.
 
 ```swift
 let someView: UIView!
@@ -70,7 +70,7 @@ animator.resume()
 
 ## Example
 
-To run the example project, clone the repo, and run `open ValueAnimator.xcworkspace`. 
+To run the example project, clone the repo, and run **open ValueAnimator.xcworkspace**. 
 You can see ValueAnimatorExample project.
 
 ## Installation
