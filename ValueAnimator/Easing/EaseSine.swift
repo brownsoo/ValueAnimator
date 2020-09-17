@@ -16,7 +16,7 @@ public class EaseSine {
     ///  The <code>easeIn()</code> method starts motion from zero velocity
     ///  and then accelerates motion as it executes.
     public static func easeIn() -> Easing {
-        return { t, b, c, d in
+        return { (t: Double, b: Double, c: Double, d: Double) -> Double in
             return -c * cos(t / d * (Double.pi / 2)) + c + b
         }
     }
@@ -34,7 +34,7 @@ public class EaseSine {
     ///  to start the motion from a zero velocity, accelerate motion,
     ///  then decelerate to a zero velocity.
     public static func easeInOut() -> Easing {
-        return { t, b, c, d in
+        return { (t: Double, b: Double, c: Double, d: Double) -> Double in
             return -c / 2 * (cos(Double.pi * t / d) - 1) + b
         }
     }
