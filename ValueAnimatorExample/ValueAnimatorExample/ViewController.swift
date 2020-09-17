@@ -131,7 +131,7 @@ class ViewController: UIViewController {
         yoyoAni.resume()
         
         // repeat
-        rect2Ani = ValueAnimator.animate("rect2", from: 30, to: 150, duration: 1.4, easing: EaseSine.easeInOut(), onChanged: { p, v in
+        rect2Ani = ValueAnimator.animate("rect2", from: 30, to: 150, duration: 1.4, easing: EaseStrong.easeInOut(), onChanged: { p, v in
             self.rect2.frame.origin = CGPoint(x: v.cg, y: 220)
             self.rect2Lb.text = "\(self.rect2Ani.counted)"
         }, option: ValueAnimator.OptionBuilder().setRepeatCount(5).build())
