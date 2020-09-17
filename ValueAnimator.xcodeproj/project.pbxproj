@@ -60,8 +60,6 @@
 		176B393820589F5800F0DF06 /* ValueAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B393720589F5800F0DF06 /* ValueAnimator.swift */; };
 		176B393E20589F7F00F0DF06 /* EaseCircular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B393B20589F7F00F0DF06 /* EaseCircular.swift */; };
 		176B394220589F7F00F0DF06 /* EaseLinear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B393D20589F7F00F0DF06 /* EaseLinear.swift */; };
-		176B394E2058A8C700F0DF06 /* SwiftLintIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B394D2058A8C700F0DF06 /* SwiftLintIntegration.swift */; };
-		176B39542058A94D00F0DF06 /* ValueAnimator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 176B391C20589EB100F0DF06 /* ValueAnimator.framework */; };
 		176B395E205B936300F0DF06 /* EaseBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B3955205B936200F0DF06 /* EaseBack.swift */; };
 		176B395F205B936300F0DF06 /* EaseElastic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B3956205B936200F0DF06 /* EaseElastic.swift */; };
 		176B3960205B936300F0DF06 /* EaseSine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B3957205B936200F0DF06 /* EaseSine.swift */; };
@@ -78,8 +76,6 @@
 		179766AD2073020000D008F9 /* ValueAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179766A82073020000D008F9 /* ValueAnimatable.swift */; };
 		179766AE2073020000D008F9 /* ValueAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179766A82073020000D008F9 /* ValueAnimatable.swift */; };
 		179766AF2073020000D008F9 /* ValueAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179766A82073020000D008F9 /* ValueAnimatable.swift */; };
-		179766B02073020000D008F9 /* ValueAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179766A82073020000D008F9 /* ValueAnimatable.swift */; };
-		E1B5ECD307B6EDC2D11785E0 /* libPods-SwiftLintIntegration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1C32A61291AC61A7828206F /* libPods-SwiftLintIntegration.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,9 +119,6 @@
 		176B393720589F5800F0DF06 /* ValueAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueAnimator.swift; sourceTree = "<group>"; };
 		176B393B20589F7F00F0DF06 /* EaseCircular.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EaseCircular.swift; sourceTree = "<group>"; };
 		176B393D20589F7F00F0DF06 /* EaseLinear.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EaseLinear.swift; sourceTree = "<group>"; };
-		176B394B2058A8C700F0DF06 /* SwiftLintIntegration.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftLintIntegration.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		176B394D2058A8C700F0DF06 /* SwiftLintIntegration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftLintIntegration.swift; sourceTree = "<group>"; };
-		176B394F2058A8C700F0DF06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		176B3955205B936200F0DF06 /* EaseBack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EaseBack.swift; sourceTree = "<group>"; };
 		176B3956205B936200F0DF06 /* EaseElastic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EaseElastic.swift; sourceTree = "<group>"; };
 		176B3957205B936200F0DF06 /* EaseSine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EaseSine.swift; sourceTree = "<group>"; };
@@ -136,9 +129,6 @@
 		176B395C205B936200F0DF06 /* EaseQuartic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EaseQuartic.swift; sourceTree = "<group>"; };
 		176B395D205B936200F0DF06 /* EaseStrong.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EaseStrong.swift; sourceTree = "<group>"; };
 		179766A82073020000D008F9 /* ValueAnimatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueAnimatable.swift; sourceTree = "<group>"; };
-		7607BED149B5FE7E4DCB2A28 /* Pods-SwiftLintIntegration.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftLintIntegration.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftLintIntegration/Pods-SwiftLintIntegration.debug.xcconfig"; sourceTree = "<group>"; };
-		D1C32A61291AC61A7828206F /* libPods-SwiftLintIntegration.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwiftLintIntegration.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD597FF115D5741B2B2BA70A /* Pods-SwiftLintIntegration.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftLintIntegration.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftLintIntegration/Pods-SwiftLintIntegration.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,36 +184,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		176B39482058A8C700F0DF06 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				176B39542058A94D00F0DF06 /* ValueAnimator.framework in Frameworks */,
-				E1B5ECD307B6EDC2D11785E0 /* libPods-SwiftLintIntegration.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		117382B71F5FA6BC6E3D5906 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				7607BED149B5FE7E4DCB2A28 /* Pods-SwiftLintIntegration.debug.xcconfig */,
-				DD597FF115D5741B2B2BA70A /* Pods-SwiftLintIntegration.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		176B391220589EB100F0DF06 = {
 			isa = PBXGroup;
 			children = (
 				176B391E20589EB100F0DF06 /* ValueAnimator */,
 				176B392920589EB100F0DF06 /* ValueAnimatorTests */,
-				176B394C2058A8C700F0DF06 /* SwiftLintIntegration */,
 				176B391D20589EB100F0DF06 /* Products */,
-				176B39532058A94D00F0DF06 /* Frameworks */,
-				117382B71F5FA6BC6E3D5906 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -232,7 +201,6 @@
 			children = (
 				176B391C20589EB100F0DF06 /* ValueAnimator.framework */,
 				176B392520589EB100F0DF06 /* ValueAnimator-iOSTests.xctest */,
-				176B394B2058A8C700F0DF06 /* SwiftLintIntegration.xctest */,
 				170DFD8B206B5C12002C5042 /* ValueAnimator.framework */,
 				170DFD93206B5C12002C5042 /* ValueAnimator-tvOSTests.xctest */,
 				170DFDA7206B6080002C5042 /* ValueAnimator.framework */,
@@ -289,23 +257,6 @@
 				176B393D20589F7F00F0DF06 /* EaseLinear.swift */,
 			);
 			path = Easing;
-			sourceTree = "<group>";
-		};
-		176B394C2058A8C700F0DF06 /* SwiftLintIntegration */ = {
-			isa = PBXGroup;
-			children = (
-				176B394D2058A8C700F0DF06 /* SwiftLintIntegration.swift */,
-				176B394F2058A8C700F0DF06 /* Info.plist */,
-			);
-			path = SwiftLintIntegration;
-			sourceTree = "<group>";
-		};
-		176B39532058A94D00F0DF06 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				D1C32A61291AC61A7828206F /* libPods-SwiftLintIntegration.a */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -469,24 +420,6 @@
 			productReference = 176B392520589EB100F0DF06 /* ValueAnimator-iOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		176B394A2058A8C700F0DF06 /* SwiftLintIntegration */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 176B39502058A8C700F0DF06 /* Build configuration list for PBXNativeTarget "SwiftLintIntegration" */;
-			buildPhases = (
-				1984D9334AA82E9871AE0BCB /* [CP] Check Pods Manifest.lock */,
-				176B39472058A8C700F0DF06 /* Sources */,
-				176B39482058A8C700F0DF06 /* Frameworks */,
-				176B39492058A8C700F0DF06 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SwiftLintIntegration;
-			productName = SwiftLintIntegration;
-			productReference = 176B394B2058A8C700F0DF06 /* SwiftLintIntegration.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -531,10 +464,6 @@
 						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
-					176B394A2058A8C700F0DF06 = {
-						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
-					};
 				};
 			};
 			buildConfigurationList = 176B391620589EB100F0DF06 /* Build configuration list for PBXProject "ValueAnimator" */;
@@ -557,7 +486,6 @@
 				170DFDA6206B6080002C5042 /* ValueAnimator-macOS */,
 				170DFDAE206B6080002C5042 /* ValueAnimator-macOSTests */,
 				170DFDC2206B6182002C5042 /* ValueAnimator-watchOS */,
-				176B394A2058A8C700F0DF06 /* SwiftLintIntegration */,
 			);
 		};
 /* End PBXProject section */
@@ -612,35 +540,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		176B39492058A8C700F0DF06 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		1984D9334AA82E9871AE0BCB /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SwiftLintIntegration-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		170DFD86206B5C12002C5042 /* Sources */ = {
@@ -754,15 +654,6 @@
 				170DFDF5206B6379002C5042 /* PropertyTests.swift in Sources */,
 				170DFDF7206C6958002C5042 /* XCTest+Compatibility.swift in Sources */,
 				179766AA2073020000D008F9 /* ValueAnimatable.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		176B39472058A8C700F0DF06 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				176B394E2058A8C700F0DF06 /* SwiftLintIntegration.swift in Sources */,
-				179766B02073020000D008F9 /* ValueAnimatable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1206,36 +1097,6 @@
 			};
 			name = Release;
 		};
-		176B39512058A8C700F0DF06 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7607BED149B5FE7E4DCB2A28 /* Pods-SwiftLintIntegration.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TB576F3KJ6;
-				INFOPLIST_FILE = SwiftLintIntegration/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hansoolabs.SwiftLintIntegration;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		176B39522058A8C700F0DF06 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DD597FF115D5741B2B2BA70A /* Pods-SwiftLintIntegration.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TB576F3KJ6;
-				INFOPLIST_FILE = SwiftLintIntegration/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hansoolabs.SwiftLintIntegration;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1307,15 +1168,6 @@
 			buildConfigurations = (
 				176B393420589EB100F0DF06 /* Debug */,
 				176B393520589EB100F0DF06 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		176B39502058A8C700F0DF06 /* Build configuration list for PBXNativeTarget "SwiftLintIntegration" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				176B39512058A8C700F0DF06 /* Debug */,
-				176B39522058A8C700F0DF06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
