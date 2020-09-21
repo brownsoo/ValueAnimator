@@ -6,8 +6,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/ValueAnimator.svg?style=flat)](http://cocoapods.org/pods/ValueAnimator)
 [![codebeat badge](https://codebeat.co/badges/ffe86bc0-24d9-4c1d-993c-274d8f803eb5)](https://codebeat.co/projects/github-com-brownsoo-valueanimator-master)
 
-- [ ] To add more example
-- [ ] Add easy methods for UIView property animation
+- [ ] Multiple properties in funcion 'onChanged'
 
 ## Demo
 
@@ -75,12 +74,21 @@ You can see ValueAnimatorExample project.
 
 ## Installation
 
-ValueAnimator is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+### [CocoaPods](http://cocoapods.org)
+
+Simply add the following line to your Podfile:
 
 ```ruby
 pod 'ValueAnimator'
 ```
+
+### [Swift Package Manager](https://swift.org/package-manager/)
+
+* Open Xcode
+* Go to File > Swift Packages > Add Package Dependency...
+* Paste this Github Repo URL (https://github.com/brownsoo/ValueAnimator) into the search bar.
+* Select the SwURL repo from the search results.
+
 
 ## Author
 

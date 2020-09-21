@@ -2,10 +2,10 @@
 import PackageDescription
 
 let package = Package(
-	name: "ValueAnimator",
-	platforms: [
+    name: "ValueAnimator",
+    platforms: [
         .iOS(.v9), .tvOS(.v12), .macOS(.v10_10), .watchOS(.v2)
-	],
+    ],
     products: [
         .library(
             name: "ValueAnimator",
@@ -18,14 +18,14 @@ let package = Package(
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
-               
+        
         .target(
             name: "ValueAnimator",
             dependencies: [],
             path: "ValueAnimator"
-            ),
-//        .testTarget(
-//            name: "ValueAnimator-iOSTests",
-//            dependencies: ["ValueAnimator-iOS"]),
+        ),
+        //        .testTarget(
+        //            name: "ValueAnimator-iOSTests",
+        //            dependencies: ["ValueAnimator-iOS"]),
     ]
 )
