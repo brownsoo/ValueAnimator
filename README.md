@@ -87,7 +87,7 @@ pod 'ValueAnimator'
 * Open Xcode
 * Go to File > Swift Packages > Add Package Dependency...
 * Paste this Github Repo URL (https://github.com/brownsoo/ValueAnimator) into the search bar.
-* Select the SwURL repo from the search results.
+* Select the ValueAnimator repo from the search results.
 
 
 ## Author
