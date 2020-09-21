@@ -9,10 +9,8 @@ let package = Package(
     products: [
         .library(
             name: "ValueAnimator",
-            targets: ["ValueAnimator-iOS",
-                      "ValueAnimator-tvOS",
-                      "ValueAnimator-macOS",
-                      "ValueAnimator-watchOS"]),
+            targets: ["ValueAnimator"]
+        ),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
