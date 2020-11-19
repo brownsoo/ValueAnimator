@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "ValueAnimator"
-  s.version          = "0.6.6"
+  s.version          = "0.6.7"
   s.summary          = "Value Animation Util in Swift"
   s.description      = <<-DESC
                         ValueAnimator makes value transition in specific duration with various easing utils.
