@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "ValueAnimator"
-  s.version          = "0.6.5"
+  s.version          = "0.6.6"
   s.summary          = "Value Animation Util in Swift"
   s.description      = <<-DESC
                         ValueAnimator makes value transition in specific duration with various easing utils.
@@ -16,6 +16,6 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target    = '9.0'
   s.watchos.deployment_target = '2.0'
   s.requires_arc = true
-  s.source_files     = 'ValueAnimator/**/*.swift'
+  s.source_files     = 'Sources/**/*.swift'
   s.swift_versions = ['4.0', '4.2', '5.0']
 end
