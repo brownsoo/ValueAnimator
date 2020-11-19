@@ -76,9 +76,9 @@
 		179766AD2073020000D008F9 /* ValueAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179766A82073020000D008F9 /* ValueAnimatable.swift */; };
 		179766AE2073020000D008F9 /* ValueAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179766A82073020000D008F9 /* ValueAnimatable.swift */; };
 		179766AF2073020000D008F9 /* ValueAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179766A82073020000D008F9 /* ValueAnimatable.swift */; };
-		17E5A81B2566131A00D80041 /* ValueAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = 176B391F20589EB100F0DF06 /* ValueAnimator.h */; };
-		17E5A8232566131B00D80041 /* ValueAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = 176B391F20589EB100F0DF06 /* ValueAnimator.h */; };
-		17E5A8242566131B00D80041 /* ValueAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = 176B391F20589EB100F0DF06 /* ValueAnimator.h */; };
+		17E5A81B2566131A00D80041 /* ValueAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = 176B391F20589EB100F0DF06 /* ValueAnimator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		17E5A8232566131B00D80041 /* ValueAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = 176B391F20589EB100F0DF06 /* ValueAnimator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		17E5A8242566131B00D80041 /* ValueAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = 176B391F20589EB100F0DF06 /* ValueAnimator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */

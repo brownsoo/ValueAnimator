@@ -5,8 +5,7 @@
 //  Created by hyonsoo han on 2018. 3. 14..
 //  Copyright © 2018년 Hansoolabs. All rights reserved.
 //
-
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for ValueAnimator.
 FOUNDATION_EXPORT double ValueAnimatorVersionNumber;

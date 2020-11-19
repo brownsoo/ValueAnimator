@@ -16,8 +16,7 @@ let package = Package(
         .target(
             name: "ValueAnimator",
             dependencies: []),
-        .testTarget(
-            name: "ValueAnimator-iOSTests",
-            dependencies: ["ValueAnimator"]),
+        .testTarget(name: "ValueAnimator-iOSTests",
+            dependencies: ["ValueAnimator"], path: "ValueAnimatorTests"),
     ]
 )
