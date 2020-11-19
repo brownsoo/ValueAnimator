@@ -76,6 +76,9 @@
 		179766AD2073020000D008F9 /* ValueAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179766A82073020000D008F9 /* ValueAnimatable.swift */; };
 		179766AE2073020000D008F9 /* ValueAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179766A82073020000D008F9 /* ValueAnimatable.swift */; };
 		179766AF2073020000D008F9 /* ValueAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179766A82073020000D008F9 /* ValueAnimatable.swift */; };
+		17E5A81B2566131A00D80041 /* ValueAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = 176B391F20589EB100F0DF06 /* ValueAnimator.h */; };
+		17E5A8232566131B00D80041 /* ValueAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = 176B391F20589EB100F0DF06 /* ValueAnimator.h */; };
+		17E5A8242566131B00D80041 /* ValueAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = 176B391F20589EB100F0DF06 /* ValueAnimator.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -192,7 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				173DCB9C2518525D00339B80 /* Package.swift */,
-				176B391E20589EB100F0DF06 /* ValueAnimator */,
+				176B391E20589EB100F0DF06 /* Sources */,
 				176B392920589EB100F0DF06 /* ValueAnimatorTests */,
 				176B391D20589EB100F0DF06 /* Products */,
 			);
@@ -212,7 +215,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		176B391E20589EB100F0DF06 /* ValueAnimator */ = {
+		176B391E20589EB100F0DF06 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				176B393A20589F6900F0DF06 /* Easing */,
@@ -220,7 +223,7 @@
 				176B391F20589EB100F0DF06 /* ValueAnimator.h */,
 				176B392020589EB100F0DF06 /* Info.plist */,
 			);
-			path = ValueAnimator;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		176B392920589EB100F0DF06 /* ValueAnimatorTests */ = {
@@ -268,6 +271,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17E5A81B2566131A00D80041 /* ValueAnimator.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +279,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17E5A8232566131B00D80041 /* ValueAnimator.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +287,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17E5A8242566131B00D80041 /* ValueAnimator.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,7 +435,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1220;
 				ORGANIZATIONNAME = Hansoolabs;
 				TargetAttributes = {
 					170DFD8A206B5C12002C5042 = {
@@ -691,7 +697,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = ValueAnimator/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hansoolabs.ValueAnimator;
@@ -715,7 +721,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = ValueAnimator/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hansoolabs.ValueAnimator;
@@ -774,7 +780,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = ValueAnimator/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -797,7 +803,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = ValueAnimator/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -856,7 +862,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = ValueAnimator/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hansoolabs.ValueAnimator;
@@ -881,7 +887,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = ValueAnimator/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hansoolabs.ValueAnimator;
@@ -947,7 +953,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MARKETING_VERSION = 0.6.5;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -1009,7 +1015,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MARKETING_VERSION = 0.6.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -1035,7 +1041,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = ValueAnimator/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hansoolabs.ValueAnimator;
@@ -1060,7 +1066,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = ValueAnimator/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hansoolabs.ValueAnimator;
