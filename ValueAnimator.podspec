@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "ValueAnimator"
-  s.version          = "0.6.7"
+  s.version          = "0.6.8"
   s.summary          = "Value Animation Util in Swift"
   s.description      = <<-DESC
                         ValueAnimator makes value transition in specific duration with various easing utils.
@@ -11,10 +11,10 @@ Pod::Spec.new do |s|
   #s.documentation_url = "http://brownsoo.github.io/ValueAnimator/"
   s.social_media_url = "http://twitter.com/hansoolabs"
   s.source           = { :git => "https://github.com/brownsoo/ValueAnimator.git", :tag => s.version.to_s }
-  s.ios.deployment_target     = '9.0'
-  s.osx.deployment_target     = '10.10'
-  s.tvos.deployment_target    = '9.0'
-  s.watchos.deployment_target = '2.0'
+  s.ios.deployment_target     = '11.0'
+  s.tvos.deployment_target    = '12.0'
+  s.osx.deployment_target     = '11.0'
+  s.watchos.deployment_target = '7.0'
   s.requires_arc = true
   s.source_files     = 'Sources/**/*.swift'
   s.swift_versions = ['4.0', '4.2', '5.0']

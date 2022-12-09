@@ -33,7 +33,14 @@ class ViewController: UIViewController {
         if #available(iOS 13.0, *) {
             view.backgroundColor = UIColor.systemBackground
         }
-        let parent = self.view!
+        let parent = UIView()
+        self.view.addSubview(parent)
+        parent.translatesAutoresizingMaskIntoConstraints = false
+        parent.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        parent.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        parent.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
+        parent.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        
         var label = UILabel()
         parent.addSubview(label)
         label.font = UIFont.systemFont(ofSize: 12)
@@ -99,10 +106,9 @@ class ViewController: UIViewController {
         
         remainLb = UILabel()
         parent.addSubview(remainLb)
-        remainLb.frame = CGRect(x: 24, y: 340, width: parent.bounds.width - 48, height: 20)
+        remainLb.frame = CGRect(x: 24, y: 340, width: view.bounds.width - 48, height: 30)
         remainLb.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         remainLb.textColor = UIColor.gray.withAlphaComponent(0.7)
-        remainLb.adjustsFontSizeToFitWidth = true
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "valueanimator",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/brownsoo/ValueAnimator",
+      "state" : {
+        "branch" : "master",
+        "revision" : "4c9306a8212fc493a7f6c2d8434d055aa9aa20c2"
+      }
+    }
+  ],
+  "version" : 2
+}

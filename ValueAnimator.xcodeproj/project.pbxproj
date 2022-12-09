@@ -114,6 +114,7 @@
 		170DFDF6206C6958002C5042 /* XCTest+Compatibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTest+Compatibility.swift"; sourceTree = "<group>"; };
 		172537CC206A12B700F61CBB /* Easing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Easing.swift; sourceTree = "<group>"; };
 		173DCB9C2518525D00339B80 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		1740C8302943A5F900E550DF /* ValueAnimator.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = ValueAnimator.podspec; sourceTree = "<group>"; };
 		176B391C20589EB100F0DF06 /* ValueAnimator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ValueAnimator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		176B391F20589EB100F0DF06 /* ValueAnimator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ValueAnimator.h; sourceTree = "<group>"; };
 		176B392020589EB100F0DF06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -191,13 +192,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1740C82E29439F2A00E550DF /* ValueAnimator */ = {
+			isa = PBXGroup;
+			children = (
+				176B393620589F1800F0DF06 /* Core */,
+				176B393A20589F6900F0DF06 /* Easing */,
+			);
+			path = ValueAnimator;
+			sourceTree = "<group>";
+		};
+		1740C82F29439F9200E550DF /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				176B392C20589EB100F0DF06 /* Info.plist */,
+				176B392920589EB100F0DF06 /* ValueAnimatorTests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
 		176B391220589EB100F0DF06 = {
 			isa = PBXGroup;
 			children = (
+				1740C8302943A5F900E550DF /* ValueAnimator.podspec */,
 				173DCB9C2518525D00339B80 /* Package.swift */,
-				176B391E20589EB100F0DF06 /* Sources */,
-				176B392920589EB100F0DF06 /* ValueAnimatorTests */,
 				176B391D20589EB100F0DF06 /* Products */,
+				176B391E20589EB100F0DF06 /* Sources */,
+				1740C82F29439F9200E550DF /* Tests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -218,10 +238,9 @@
 		176B391E20589EB100F0DF06 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				176B393A20589F6900F0DF06 /* Easing */,
-				176B393620589F1800F0DF06 /* Core */,
-				176B391F20589EB100F0DF06 /* ValueAnimator.h */,
 				176B392020589EB100F0DF06 /* Info.plist */,
+				1740C82E29439F2A00E550DF /* ValueAnimator */,
+				176B391F20589EB100F0DF06 /* ValueAnimator.h */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -229,7 +248,6 @@
 		176B392920589EB100F0DF06 /* ValueAnimatorTests */ = {
 			isa = PBXGroup;
 			children = (
-				176B392C20589EB100F0DF06 /* Info.plist */,
 				176B392A20589EB100F0DF06 /* PropertyTests.swift */,
 				170DFDF6206C6958002C5042 /* XCTest+Compatibility.swift */,
 			);
@@ -783,7 +801,7 @@
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hansoolabs.ValueAnimator;
 				PRODUCT_NAME = ValueAnimator;
 				SDKROOT = macosx;
@@ -806,7 +824,7 @@
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hansoolabs.ValueAnimator;
 				PRODUCT_NAME = ValueAnimator;
 				SDKROOT = macosx;
@@ -872,7 +890,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 			};
 			name = Debug;
 		};
@@ -897,7 +915,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 			};
 			name = Release;
 		};
@@ -1043,6 +1061,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hansoolabs.ValueAnimator;
 				PRODUCT_MODULE_NAME = ValueAnimator;
@@ -1068,6 +1087,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hansoolabs.ValueAnimator;
 				PRODUCT_MODULE_NAME = ValueAnimator;
