@@ -4,7 +4,7 @@ import PackageDescription
 let package = Package(
     name: "ValueAnimator",
     platforms: [
-        .iOS(.v9), .tvOS(.v12), .macOS(.v10_10), .watchOS(.v2)
+        .iOS(.v11), .tvOS(.v12), .macOS(.v11), .watchOS(.v7)
     ],
     products: [
         .library(
