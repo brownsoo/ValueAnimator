@@ -25,9 +25,9 @@ env:
 matrix:
   include:
     - osx_image: xcode14
-      env: SCHEME="macOS"  SDK="macosx"           DESTINATION="OS=12.3,arch=x86_64"                    SWIFT_VERSION="5.0" ACTION="test"
+      env: SCHEME="macOS"  SDK="macosx12.3"           DESTINATION="arch=x86_64"                    SWIFT_VERSION="5.0" ACTION="test"
     - osx_image: xcode14
-      env: SCHEME="iOS"    SDK="iphonesimulator"      DESTINATION="OS=16.0,name=iPhone 13"          SWIFT_VERSION="5.0" ACTION="test"
+      env: SCHEME="iOS"    SDK="iphonesimulator"      DESTINATION="iOS=16.0,name=iPhone 14"          SWIFT_VERSION="5.0" ACTION="test"
     - osx_image: xcode14
       env: SCHEME="tvOS"   SDK="appletvsimulator"     DESTINATION="OS=16.0,name=Apple TV 4K (at 1080p) (2nd generation)"       SWIFT_VERSION="5.0" ACTION="test"
 
