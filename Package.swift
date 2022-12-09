@@ -7,7 +7,10 @@ let package = Package(
         .iOS(.v9), .tvOS(.v12), .macOS(.v10_10), .watchOS(.v2)
     ],
     products: [
-        .library(name: "ValueAnimator", targets: ["ValueAnimator"]),
+        .library(
+            name: "ValueAnimator",
+            targets: ["ValueAnimator"]
+        )
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -15,8 +18,11 @@ let package = Package(
     targets: [
         .target(
             name: "ValueAnimator",
-            dependencies: []),
-        .testTarget(name: "ValueAnimator-iOSTests",
-            dependencies: ["ValueAnimator"], path: "ValueAnimatorTests"),
+            dependencies: []
+        ),
+        .testTarget(
+            name: "ValueAnimatorTests",
+            dependencies: ["ValueAnimator"]
+        )
     ]
 )
