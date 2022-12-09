@@ -92,7 +92,7 @@ pod 'ValueAnimator'
 
 ## Author
 
-brownsoo, [@hansoo.labs](https://twitter.com/hansoolabs)
+brownsoo, [@medium](https://medium.com/@brownsoo)
 
 ## License
 
