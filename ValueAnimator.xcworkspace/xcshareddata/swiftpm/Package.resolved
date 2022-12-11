@@ -5,7 +5,7 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/brownsoo/ValueAnimator",
       "state" : {
-        "revision" : "c44dc74d9137bfa49925de3dc391824aa6f60df4",
+        "revision" : "0c2fc0cea49592577c95c47cc6a714a294b67c32",
         "version" : "0.6.8"
       }
     }
