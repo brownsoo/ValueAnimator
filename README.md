@@ -1,10 +1,10 @@
 # ValueAnimator
 
-[![CI Status](http://img.shields.io/travis/brownsoo/ValueAnimator.svg?style=flat)](https://travis-ci.org/brownsoo/ValueAnimator)
 [![Version](https://img.shields.io/cocoapods/v/ValueAnimator.svg?style=flat)](http://cocoapods.org/pods/ValueAnimator)
 [![License](https://img.shields.io/cocoapods/l/ValueAnimator.svg?style=flat)](http://cocoapods.org/pods/ValueAnimator)
 [![Platform](https://img.shields.io/cocoapods/p/ValueAnimator.svg?style=flat)](http://cocoapods.org/pods/ValueAnimator)
 [![codebeat badge](https://codebeat.co/badges/ffe86bc0-24d9-4c1d-993c-274d8f803eb5)](https://codebeat.co/projects/github-com-brownsoo-valueanimator-master)
+![actions workflow](https://github.com/brownsoo/ValueAnimator/actions/workflows/swift.yml/badge.svg)
 
 - [ ] Multiple properties in funcion 'onChanged'
 
