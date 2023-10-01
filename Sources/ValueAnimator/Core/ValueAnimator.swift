@@ -113,13 +113,29 @@ public class ValueAnimator: Hashable {
     public private(set) var isDisposed = false
 
     /// callback for animation updates
-    @available(swift, obsoleted: 0.6.3, renamed: "changeCallback")
-    public var changeFunction: ChangeFunction? = nil
+    @available(*, unavailable, renamed: "changeCallback")
+    public var changeFunction: ChangeFunction? {
+        set {
+            changeCallback = newValue
+        }
+        get {
+            return changeCallback
+        }
+    }
     /// callback for animation updates
     public var changeCallback: ChangeFunction? = nil
+    
     /// callback for animation finishes
-    @available(swift, obsoleted: 0.6.3, renamed: "endCallback")
-    public var endFunction: EndFunction? = nil
+    @available(*, unavailable, renamed: "endCallback")
+    public var endFunction: EndFunction? {
+        set {
+            endCallback = newValue
+        }
+        get {
+            return endCallback
+        }
+    }
+    
     /// callback for animation finishes
     public var endCallback: EndFunction? = nil
 
