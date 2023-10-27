@@ -74,13 +74,6 @@ You can see ValueAnimatorExample project.
 
 ## Installation
 
-### [CocoaPods](http://cocoapods.org)
-
-Simply add the following line to your Podfile:
-
-```ruby
-pod 'ValueAnimator'
-```
 
 ### [Swift Package Manager](https://swift.org/package-manager/)
 
@@ -89,6 +82,14 @@ pod 'ValueAnimator'
 * Paste this Github Repo URL (https://github.com/brownsoo/ValueAnimator) into the search bar.
 * Select the ValueAnimator repo from the search results.
 
+
+### [CocoaPods](http://cocoapods.org)
+
+Simply add the following line to your Podfile:
+
+```ruby
+pod 'ValueAnimator'
+```
 
 ## Author
 
