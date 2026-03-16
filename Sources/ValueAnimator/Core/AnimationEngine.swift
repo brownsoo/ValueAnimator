@@ -16,6 +16,9 @@ actor AnimationEngine {
     private var animations = Set<ValueAnimator>()
     private var driver: DisplayLinkDriver?
 
+    /// Thread-safe animation count — updated atomically on every add/remove.
+    nonisolated let animationCount = AtomicInt(0)
+
     var count: Int {
         animations.count
     }
@@ -24,6 +27,7 @@ actor AnimationEngine {
 
     func add(_ ani: ValueAnimator) {
         animations.insert(ani)
+        animationCount.store(animations.count)
         if ValueAnimator.debug {
             print("ValueAnimator -----------: aniList added id: \(ani.hashValue)")
         }
@@ -152,6 +156,7 @@ actor AnimationEngine {
 
     private func finishAnimation(_ ani: ValueAnimator) {
         animations.remove(ani)
+        animationCount.store(animations.count)
         for p in ani.props {
             if let initial = ani.initials[p],
                let amount = ani.changes[p] {
@@ -172,6 +177,7 @@ actor AnimationEngine {
 
     private func disposeAnimation(_ ani: ValueAnimator) {
         animations.remove(ani)
+        animationCount.store(animations.count)
         ani.isDisposed = true
         ani.isAnimating = false
         stopDriverIfEmpty()

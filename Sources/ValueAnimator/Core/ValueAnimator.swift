@@ -3,6 +3,9 @@
 //
 
 import Foundation
+#if canImport(QuartzCore)
+import QuartzCore
+#endif
 
 public class ValueAnimator: Hashable, @unchecked Sendable {
 
@@ -137,16 +140,7 @@ public class ValueAnimator: Hashable, @unchecked Sendable {
     static public var frameRate: Int = 60
 
     static public var count: Int {
-        // Provide a synchronous best-effort read.
-        // For exact count use: await AnimationEngine.shared.count
-        var result = 0
-        let semaphore = DispatchSemaphore(value: 0)
-        Task {
-            result = await AnimationEngine.shared.count
-            semaphore.signal()
-        }
-        semaphore.wait()
-        return result
+        AnimationEngine.shared.animationCount.load()
     }
 
     static public func finishAll() {
@@ -157,15 +151,8 @@ public class ValueAnimator: Hashable, @unchecked Sendable {
         Task { await AnimationEngine.shared.disposeAll() }
     }
 
-    static public func hasAnimation(_ prop: String) -> Bool {
-        var result = false
-        let semaphore = DispatchSemaphore(value: 0)
-        Task {
-            result = await AnimationEngine.shared.hasAnimation(prop)
-            semaphore.signal()
-        }
-        semaphore.wait()
-        return result
+    static public func hasAnimation(_ prop: String) async -> Bool {
+        await AnimationEngine.shared.hasAnimation(prop)
     }
 
     @discardableResult

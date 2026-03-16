@@ -18,9 +18,14 @@ final class TimerDriver: DisplayLinkDriver {
         self.interval = 1.0 / Double(fps)
     }
 
+    private static let timerQueue = DispatchQueue(
+        label: "com.valueanimator.timer",
+        qos: .userInteractive
+    )
+
     func start() {
         guard timer == nil else { return }
-        let t = DispatchSource.makeTimerSource(queue: .main)
+        let t = DispatchSource.makeTimerSource(queue: TimerDriver.timerQueue)
         t.schedule(deadline: .now(), repeating: interval, leeway: .milliseconds(1))
         t.setEventHandler { [weak self] in
             self?.onTick?(CACurrentMediaTime())
@@ -39,11 +44,13 @@ final class TimerDriver: DisplayLinkDriver {
     }
 }
 
-/// Portable monotonic clock — uses QuartzCore when available, falls back to Foundation.
+/// Portable monotonic clock.
+/// On platforms with QuartzCore, `QuartzCore.CACurrentMediaTime()` is available globally.
+/// On other platforms (e.g. watchOS without QuartzCore), provide a fallback.
+#if canImport(QuartzCore)
+import QuartzCore
+#else
 func CACurrentMediaTime() -> TimeInterval {
-    #if canImport(QuartzCore)
-    return QuartzCore.CACurrentMediaTime()
-    #else
     return ProcessInfo.processInfo.systemUptime
-    #endif
 }
+#endif

@@ -15,11 +15,21 @@ final class CVDisplayLinkDriver: DisplayLinkDriver {
     var onTick: ((TimeInterval) -> Void)?
     private var displayLink: CVDisplayLink?
 
+    /// Falls back to a timer if CVDisplayLink cannot be created (headless / CI).
+    private var fallback: TimerDriver?
+
     func start() {
-        guard displayLink == nil else { return }
+        guard displayLink == nil, fallback == nil else { return }
         var link: CVDisplayLink?
         CVDisplayLinkCreateWithActiveCGDisplays(&link)
-        guard let link = link else { return }
+        guard let link = link else {
+            // No display available — use timer fallback
+            let timer = TimerDriver()
+            timer.onTick = { [weak self] ts in self?.onTick?(ts) }
+            timer.start()
+            fallback = timer
+            return
+        }
         displayLink = link
 
         CVDisplayLinkSetOutputHandler(link) { [weak self] _, inNow, _, _, _ -> CVReturn in
@@ -33,9 +43,12 @@ final class CVDisplayLinkDriver: DisplayLinkDriver {
     }
 
     func stop() {
-        guard let link = displayLink else { return }
-        CVDisplayLinkStop(link)
-        displayLink = nil
+        if let link = displayLink {
+            CVDisplayLinkStop(link)
+            displayLink = nil
+        }
+        fallback?.stop()
+        fallback = nil
     }
 
     deinit {
