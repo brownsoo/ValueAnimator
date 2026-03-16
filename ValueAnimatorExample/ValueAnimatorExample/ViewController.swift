@@ -67,8 +67,15 @@ class ViewController: UIViewController {
         let controlBt = UIButton(type: .roundedRect)
         controlBt.setTitle("Pause", for: .normal)
         controlBt.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        controlBt.frame = CGRect(x: 24, y: 170, width: 100, height: 20)
-        controlBt.contentEdgeInsets = UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8)
+        
+        if #available(iOS 15.0, *) {
+            var config = UIButton.Configuration.plain()
+            config.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 8, bottom: 4, trailing: 8)
+            controlBt.configuration = config
+        } else {
+            controlBt.contentEdgeInsets = UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8)
+        }
+        controlBt.frame.origin = .init(x: 24, y: 170)
         controlBt.setNeedsLayout()
         controlBt.layer.borderColor = UIColor.blue.cgColor
         controlBt.layer.borderWidth = 1.0
@@ -97,9 +104,15 @@ class ViewController: UIViewController {
         let newBt = UIButton(type: .system)
         parent.addSubview(newBt)
         newBt.setTitle("New Animator", for: .normal)
-        newBt.frame = CGRect(x: 24, y: 280, width: 30, height: 20)
-        newBt.contentEdgeInsets = UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8)
+        if #available(iOS 15.0, *) {
+            var config = UIButton.Configuration.plain()
+            config.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 8, bottom: 4, trailing: 8)
+            newBt.configuration = config
+        } else {
+            newBt.contentEdgeInsets = UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8)
+        }
         newBt.sizeToFit()
+        newBt.frame.origin = CGPoint(x: 24, y: 280)
         newBt.layer.borderColor = UIColor.blue.cgColor
         newBt.layer.borderWidth = 1.0
         newBt.addTarget(self, action: #selector(onClickNew), for: .touchUpInside)

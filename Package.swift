@@ -1,10 +1,10 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.5
 import PackageDescription
 
 let package = Package(
     name: "ValueAnimator",
     platforms: [
-        .iOS(.v12), .tvOS(.v12), .macOS(.v11), .watchOS(.v7)
+        .iOS(.v13), .tvOS(.v13), .macOS(.v10_15), .watchOS(.v6)
     ],
     products: [
         .library(

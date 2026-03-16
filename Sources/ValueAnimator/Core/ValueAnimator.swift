@@ -3,14 +3,17 @@
 //
 
 import Foundation
+#if canImport(QuartzCore)
+import QuartzCore
+#endif
 
-public class ValueAnimator: Hashable {
+public class ValueAnimator: Hashable, @unchecked Sendable {
 
     public struct Option {
-        let yoyo: Bool
-        let repeatCount: Int
-        let delay: TimeInterval
-        let repeatInfinitely: Bool
+        public let yoyo: Bool
+        public let repeatCount: Int
+        public let delay: TimeInterval
+        public let repeatInfinitely: Bool
     }
 
     public class OptionBuilder {
@@ -52,42 +55,28 @@ public class ValueAnimator: Hashable {
 
     private lazy var objectIdentifier = ObjectIdentifier(self)
 
-    #if swift(>=5.0)
     public func hash(into hasher: inout Hasher) {
         hasher.combine(objectIdentifier)
     }
-    #elseif swift(>=4.2)
-        #if compiler(>=5.0)
-        public func hash(into hasher: inout Hasher) {
-            hasher.combine(objectIdentifier)
-        }
-        #else
-        var hashValue: Int {
-            return self.objectIdentifier.hashValue
-        }
-        #endif
-    #else
-    public var hashValue: Int {
-        return self.objectIdentifier.hashValue
-    }
-    #endif
 
-    private var props = [String]()
-    private var startTime: TimeInterval = 0
-    private var initials = [String: ValueAnimatable]()
-    private var changes = [String: ValueAnimatable]()
+    // MARK: - Internal state (mutated only by AnimationEngine)
+
+    internal var props = [String]()
+    internal var startTime: TimeInterval = 0
+    internal var initials = [String: ValueAnimatable]()
+    internal var changes = [String: ValueAnimatable]()
     /// animation duration of one cycle in seconds
-    public private(set) var duration: TimeInterval = 1
-    /// seconds in covered on timeline
-    public private(set) var covered: TimeInterval = 0
+    public internal(set) var duration: TimeInterval = 1
+    /// seconds covered on timeline
+    public internal(set) var covered: TimeInterval = 0
     /// seconds to delay
-    public private(set) var delay: TimeInterval = 0
+    public internal(set) var delay: TimeInterval = 0
     /// yoyo animation
-    public private(set) var yoyo = false
+    public internal(set) var yoyo = false
     /// how many it repeat animation.
-    public private(set) var repeatCount: Int = 0
+    public internal(set) var repeatCount: Int = 0
     /// animated count
-    public private(set) var counted: Int = 0 {
+    public internal(set) var counted: Int = 0 {
         didSet {
             if ValueAnimator.debug {
                 print("ValueAnimator- \(props)-- counted: \(counted)")
@@ -107,35 +96,14 @@ public class ValueAnimator: Hashable {
     }
     /// whether if it repeat infinitely or not.
     /// if true, animation ignores repeatCount
-    public private(set) var isInfinitely = false
-    public private(set) var isAnimating = false
-    public private(set) var isFinished = false
-    public private(set) var isDisposed = false
+    public internal(set) var isInfinitely = false
+    public internal(set) var isAnimating = false
+    public internal(set) var isFinished = false
+    public internal(set) var isDisposed = false
 
     /// callback for animation updates
-    @available(*, unavailable, renamed: "changeCallback")
-    public var changeFunction: ChangeFunction? {
-        set {
-            changeCallback = newValue
-        }
-        get {
-            return changeCallback
-        }
-    }
-    /// callback for animation updates
     public var changeCallback: ChangeFunction? = nil
-    
-    /// callback for animation finishes
-    @available(*, unavailable, renamed: "endCallback")
-    public var endFunction: EndFunction? {
-        set {
-            endCallback = newValue
-        }
-        get {
-            return endCallback
-        }
-    }
-    
+
     /// callback for animation finishes
     public var endCallback: EndFunction? = nil
 
@@ -145,7 +113,7 @@ public class ValueAnimator: Hashable {
         return left.objectIdentifier == right.objectIdentifier
     }
 
-    private init() {
+    internal init() {
     }
 
     public func resume() {
@@ -164,37 +132,27 @@ public class ValueAnimator: Hashable {
         isDisposed = true
     }
 
-
-    // MARK: class values
+    // MARK: - Static API (delegates to AnimationEngine)
 
     static public var debug = false
-    static public var frameRate: Int = 40 {
-        didSet {
-            sleepTime = 1 / Double(frameRate)
-        }
-    }
-    static private var nowTime: TimeInterval = 0
-    static private var renderer: Thread? = nil
-    static private var aniList = Set<ValueAnimator>()
-    static private var sleepTime: TimeInterval = 0.02
-    static private let lock = NSRecursiveLock()
-    
+
+    @available(*, deprecated, message: "frameRate is ignored when using CADisplayLink. Only affects watchOS TimerDriver.")
+    static public var frameRate: Int = 60
+
     static public var count: Int {
-        return aniList.count
+        AnimationEngine.shared.animationCount.load()
     }
 
     static public func finishAll() {
-        aniList.forEach {
-            $0.finish()
-        }
+        Task { await AnimationEngine.shared.finishAll() }
     }
 
     static public func disposeAll() {
-        aniList.removeAll()
+        Task { await AnimationEngine.shared.disposeAll() }
     }
 
-    static public func hasAnimation(_ prop: String) -> Bool {
-        return aniList.first{ $0.props.contains(prop) } != nil
+    static public func hasAnimation(_ prop: String) async -> Bool {
+        await AnimationEngine.shared.hasAnimation(prop)
     }
 
     @discardableResult
@@ -213,7 +171,7 @@ public class ValueAnimator: Hashable {
                        option: nil,
                        onEnd: nil)
     }
-    
+
     @discardableResult
     static public func animate(_ prop: String,
                                from: AnimatableValueType,
@@ -229,7 +187,7 @@ public class ValueAnimator: Hashable {
                        option: nil,
                        onEnd: nil)
     }
-    
+
     @discardableResult
     static public func animate(_ prop: String,
                                from: AnimatableValueType,
@@ -278,141 +236,10 @@ public class ValueAnimator: Hashable {
             ani.repeatCount *= 2
         }
         ani.changeCallback = onChanged
-        ani.startTime = Date().timeIntervalSince1970
+        ani.startTime = CACurrentMediaTime()
 
-        lock.lock()
-        aniList.insert(ani)
-        lock.unlock()
-        
-        if debug {
-            print("ValueAnimator -----------: aniList added id: \(ani.hashValue)")
-        }
-        // start runLoop if not running
-        if renderer == nil || renderer?.isFinished == true {
-            renderer = Thread(target: self, selector: #selector(onProgress), object: nil)
-            renderer?.name = "renderer"
-            renderer?.qualityOfService = .userInteractive
-            renderer?.start()
-        }
+        Task { await AnimationEngine.shared.add(ani) }
 
         return ani
-    }
-
-    @objc
-    static private func onProgress() {
-
-        while renderer != nil && !renderer!.isFinished {
-            lock.lock()
-            let list = aniList
-            lock.unlock()
-            if list.isEmpty {
-                Thread.exit()
-                break
-            }
-            for ani in list {
-                update(ani)
-            }
-            Thread.sleep(forTimeInterval: sleepTime)
-        }
-        if debug {
-            print("ValueAnimator nothing to animate")
-        }
-        Thread.exit()
-    }
-
-    static private func update(_ ani: ValueAnimator) {
-        if ani.isDisposed {
-            dispose(ani)
-            return
-        }
-        if ani.isFinished {
-            finish(ani)
-            return
-        }
-        nowTime = Date().timeIntervalSince1970
-        if !ani.isAnimating {
-            ani.startTime = nowTime - ani.covered 
-            return
-        }
-        if ani.delay > 0 {
-            ani.delay -= (nowTime - ani.startTime)
-            ani.startTime = nowTime
-            return
-        }
-        // 시간 계산
-        ani.covered = nowTime - ani.startTime
-        // repeating
-        if ani.covered >= ani.duration {
-            if ani.yoyo {
-                if ani.repeatCount <= 0 || ani.repeatCount > ani.counted || ani.isInfinitely {
-                    for p in ani.props {
-                        if let initial = ani.initials[p],
-                           let changeEnd = ani.changes[p] {
-                            let changed = initial + changeEnd
-                            change(ani, p, changed)
-                            ani.initials[p] = changed
-                            ani.changes[p]! *= -1.0
-                        }
-                    }
-                    ani.startTime = nowTime
-                    ani.counted += 1
-                    return
-                }
-            }
-            if ani.counted < ani.repeatCount || ani.isInfinitely {
-                for p in ani.props {
-                    if let initial = ani.initials[p] {
-                        change(ani, p, initial)
-                    }
-                }
-                ani.startTime = nowTime
-                ani.counted += 1
-                return
-            }
-
-            finish(ani)
-        } else {
-            // call updates in progress
-            for p in ani.props {
-                change(ani, p, ani.easing(ani.covered, ani.initials[p]!.value, ani.changes[p]!.value, ani.duration).toAnimatable())
-            }
-        }
-    }
-
-    static private func change(_ ani: ValueAnimator, _ p: String, _ v: ValueAnimatable) {
-        if ani.callbackOnMainThread {
-            DispatchQueue.main.async {
-                ani.changeCallback?(p, v)
-            }
-        } else {
-            ani.changeCallback?(p, v)
-        }
-    }
-
-    /// finish animation and update value with target
-    static private func finish(_ ani: ValueAnimator) {
-        aniList.remove(ani)
-        for p in ani.props {
-            if let initial = ani.initials[p],
-               let amount = ani.changes[p] {
-                change(ani, p, initial + amount)
-            }
-        }
-        ani.isAnimating = false
-        ani.isFinished = true
-        if ani.callbackOnMainThread {
-            DispatchQueue.main.async {
-                ani.endCallback?()
-            }
-        } else {
-            ani.endCallback?()
-        }
-    }
-
-    /// finish animation during animation
-    static private func dispose(_ ani: ValueAnimator) {
-        aniList.remove(ani)
-        ani.isDisposed = true
-        ani.isAnimating = false
     }
 }

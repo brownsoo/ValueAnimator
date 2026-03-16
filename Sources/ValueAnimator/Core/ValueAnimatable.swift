@@ -13,7 +13,7 @@ public protocol AnimatableValueType {
     func toAnimatable() -> ValueAnimatable
 }
 
-public struct ValueAnimatable {
+public struct ValueAnimatable: Sendable {
     public var value: Double
 
     public init(_ value: Int) {
