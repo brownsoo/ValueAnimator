@@ -3,11 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1740C8332943A9CF00E550DF /* ValueAnimator in Frameworks */ = {isa = PBXBuildFile; productRef = 1740C8322943A9CF00E550DF /* ValueAnimator */; };
+		1748DA0E2F6839E400723F0C /* ValueAnimator in Frameworks */ = {isa = PBXBuildFile; productRef = 1748DA0D2F6839E400723F0C /* ValueAnimator */; };
 		178F2225209AD54800F5D4D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F2224209AD54800F5D4D8 /* AppDelegate.swift */; };
 		178F2227209AD54800F5D4D8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F2226209AD54800F5D4D8 /* ViewController.swift */; };
 		178F222A209AD54800F5D4D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 178F2228209AD54800F5D4D8 /* Main.storyboard */; };
@@ -30,7 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1740C8332943A9CF00E550DF /* ValueAnimator in Frameworks */,
+				1748DA0E2F6839E400723F0C /* ValueAnimator in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,7 +91,7 @@
 			);
 			name = ValueAnimatorExample;
 			packageProductDependencies = (
-				1740C8322943A9CF00E550DF /* ValueAnimator */,
+				1748DA0D2F6839E400723F0C /* ValueAnimator */,
 			);
 			productName = ValueAnimatorExample;
 			productReference = 178F2221209AD54800F5D4D8 /* ValueAnimatorExample.app */;
@@ -103,8 +103,9 @@
 		178F2219209AD54800F5D4D8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 1220;
+				LastUpgradeCheck = 2630;
 				ORGANIZATIONNAME = Hansoolabs;
 				TargetAttributes = {
 					178F2220209AD54800F5D4D8 = {
@@ -122,7 +123,7 @@
 			);
 			mainGroup = 178F2218209AD54800F5D4D8;
 			packageReferences = (
-				1740C8312943A9CF00E550DF /* XCRemoteSwiftPackageReference "ValueAnimator" */,
+				1748DA0C2F6839E400723F0C /* XCLocalSwiftPackageReference "../../ValueAnimator" */,
 			);
 			productRefGroup = 178F2222209AD54800F5D4D8 /* Products */;
 			projectDirPath = "";
@@ -216,6 +217,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -234,6 +236,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -277,6 +280,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -288,6 +292,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
@@ -304,7 +309,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ValueAnimatorExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -329,7 +334,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ValueAnimatorExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -367,21 +372,16 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		1740C8312943A9CF00E550DF /* XCRemoteSwiftPackageReference "ValueAnimator" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/brownsoo/ValueAnimator";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.6.8;
-			};
+/* Begin XCLocalSwiftPackageReference section */
+		1748DA0C2F6839E400723F0C /* XCLocalSwiftPackageReference "../../ValueAnimator" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../ValueAnimator;
 		};
-/* End XCRemoteSwiftPackageReference section */
+/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		1740C8322943A9CF00E550DF /* ValueAnimator */ = {
+		1748DA0D2F6839E400723F0C /* ValueAnimator */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1740C8312943A9CF00E550DF /* XCRemoteSwiftPackageReference "ValueAnimator" */;
 			productName = ValueAnimator;
 		};
 /* End XCSwiftPackageProductDependency section */

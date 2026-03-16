@@ -4,7 +4,4 @@
    <FileRef
       location = "group:ValueAnimatorExample/ValueAnimatorExample.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:ValueAnimator.xcodeproj">
-   </FileRef>
 </Workspace>
