@@ -3,10 +3,12 @@
 [![Version](https://img.shields.io/cocoapods/v/ValueAnimator.svg?style=flat)](http://cocoapods.org/pods/ValueAnimator)
 [![License](https://img.shields.io/cocoapods/l/ValueAnimator.svg?style=flat)](http://cocoapods.org/pods/ValueAnimator)
 [![Platform](https://img.shields.io/cocoapods/p/ValueAnimator.svg?style=flat)](http://cocoapods.org/pods/ValueAnimator)
-[![codebeat badge](https://codebeat.co/badges/ffe86bc0-24d9-4c1d-993c-274d8f803eb5)](https://codebeat.co/projects/github-com-brownsoo-valueanimator-master)
 ![actions workflow](https://github.com/brownsoo/ValueAnimator/actions/workflows/swift.yml/badge.svg)
 
-- [ ] Multiple properties in funcion 'onChanged'
+Lightweight value interpolation with easing functions for Apple platforms.
+
+ValueAnimator transitions a value from `from` to `to` over time and reports each frame through a callback.
+You can animate a single property or multiple properties simultaneously.
 
 ## Demo
 
@@ -14,57 +16,95 @@
 
 ## Usage
 
-ValueAnimator makes the transition from initial value to target value using easing functions.
-
-#### Simple animation
+### Simple animation
 
 ```swift
-let animator = ValueAnimator.animate("some", from: 0, to: 360, duration: 1.0,
-    onChanged: { p, v in 
-        print("property \(p): \(v.value)")
-    },
-    easing: EaseCircular.easeIn())
+let animator = ValueAnimator.animate(
+    "rotation",
+    from: 0,
+    to: 360,
+    duration: 1.0,
+    easing: EaseCircular.easeIn(),
+    onChanged: { property, value in
+        print("property \(property): \(value.value)")
+    }
+)
+
 animator.resume()
 ```
 
-#### Yoyo annimation with 2 values
+### Multiple properties + yoyo
 
 ```swift
-let yoyoAni = ValueAnimator.animate(
-    props: ["h", "w"], 
-    from: [20, 30], 
-    to: [5, 150], 
-    duration: 1.4, 
-    easing: EaseSine.easeInOut(), 
-    onChanged: { p, v in
-        if p == "h" {
+let animator = ValueAnimator.animate(
+    props: ["h", "w"],
+    from: [20, 30],
+    to: [5, 150],
+    duration: 1.4,
+    easing: EaseSine.easeInOut(),
+    onChanged: { property, value in
+        if property == "h" {
             let width = self.rect1.bounds.width
-            self.rect1.frame = CGRect(x: 24, y: 140, width: width, height:v.cg)
+            self.rect1.frame = CGRect(x: 24, y: 140, width: width, height: value.cg)
         } else {
             let height = self.rect1.bounds.height
-            self.rect1.frame = CGRect(x: 24, y: 140, width:v.cg, height: height)
+            self.rect1.frame = CGRect(x: 24, y: 140, width: value.cg, height: height)
         }
-    }, 
+    },
     option: ValueAnimator.OptionBuilder()
         .setYoyo(true)
+        .setRepeatCount(2)
         .build())
-yoyoAni.resume()
+
+animator.resume()
 ```
 
-
-#### Thread
-
-ValueAnimator uses its own work-thread. But the callback `changeCallback`, `endCallback` is called in main-thread. if you wanna it called in work-thread, you just set the 'callbackOnMainThread' property is false.
+### Completion callback
 
 ```swift
-let someView: UIView!
-let animator = ValueAnimator.animate("some", from: 0, to: 1, duration: 1.0,
-    onChanged: { p, v in 
-        // called in ValueAnimator's work-thread
+let animator = ValueAnimator.animate(
+    props: ["alpha"],
+    from: [0.0],
+    to: [1.0],
+    duration: 0.5,
+    onEnd: {
+        print("animation completed")
+    }
+)
+
+animator.resume()
+```
+
+### Callback thread
+
+By default, `changeCallback` and `endCallback` are dispatched on the main thread.
+If you need callbacks on the animation engine thread, set `callbackOnMainThread = false`.
+
+```swift
+let animator = ValueAnimator.animate(
+    "opacity",
+    from: 0,
+    to: 1,
+    duration: 1.0,
+    easing: EaseCircular.easeIn(),
+    onChanged: { _, _ in
+        // called on ValueAnimator engine thread
     },
-    easing: EaseCircular.easeIn())
+)
 animator.callbackOnMainThread = false
 animator.resume()
+```
+
+### Static controls
+
+```swift
+ValueAnimator.finishAll()
+ValueAnimator.disposeAll()
+
+Task {
+    let isAnimating = await ValueAnimator.hasAnimation("opacity")
+    print(isAnimating)
+}
 ```
 
 ## Example
@@ -72,20 +112,36 @@ animator.resume()
 To run the example project, clone the repo, and run **open ValueAnimator.xcworkspace**. 
 You can see ValueAnimatorExample project.
 
+## Requirements
+
+- iOS 13+
+- tvOS 13+
+- macOS 10.15+
+- watchOS 6+
+
 ## Installation
 
 
 ### [Swift Package Manager](https://swift.org/package-manager/)
 
-* Open Xcode
-* Go to File > Swift Packages > Add Package Dependency...
-* Paste this Github Repo URL (https://github.com/brownsoo/ValueAnimator) into the search bar.
-* Select the ValueAnimator repo from the search results.
+- Open Xcode
+- Go to File > Add Package Dependencies...
+- Paste this repository URL:
+
+```text
+https://github.com/brownsoo/ValueAnimator
+```
+
+- Select the `ValueAnimator` package and add it to your target.
 
 
 ### [CocoaPods](http://cocoapods.org)
 
-Simply add the following line to your Podfile:
+> [!WARNING]
+> CocoaPods support is now legacy and no longer actively updated.
+> Please use Swift Package Manager for the latest updates.
+
+Previously, you could add:
 
 ```ruby
 pod 'ValueAnimator'
