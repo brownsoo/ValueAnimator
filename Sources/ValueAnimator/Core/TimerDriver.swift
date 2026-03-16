@@ -19,7 +19,7 @@ final class TimerDriver: DisplayLinkDriver {
     }
 
     private static let timerQueue = DispatchQueue(
-        label: "com.valueanimator.timer",
+        label: "com.hansoolabs.valueanimator.timer",
         qos: .userInteractive
     )
 
