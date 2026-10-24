@@ -75,8 +75,12 @@ class ViewController: UIViewController {
         } else {
             controlBt.contentEdgeInsets = UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8)
         }
+        // origin 만 지정하면 frame 크기가 0 이 되어 터치를 받지 못한다.
+        // 더 긴 제목("Resume")에 맞춰 크기를 잡아 두고 제목이 바뀌어도 크기를 유지한다.
+        controlBt.setTitle("Resume", for: .normal)
+        controlBt.sizeToFit()
+        controlBt.setTitle("Pause", for: .normal)
         controlBt.frame.origin = .init(x: 24, y: 170)
-        controlBt.setNeedsLayout()
         controlBt.layer.borderColor = UIColor.blue.cgColor
         controlBt.layer.borderWidth = 1.0
         parent.addSubview(controlBt)
@@ -166,8 +170,10 @@ class ViewController: UIViewController {
     private func onClickControl(_ sender: UIButton) {
         if yoyoAni.isAnimating {
             yoyoAni.pause()
+            sender.setTitle("Resume", for: .normal)
         } else {
             yoyoAni.resume()
+            sender.setTitle("Pause", for: .normal)
         }
     }
     
@@ -176,7 +182,11 @@ class ViewController: UIViewController {
     private func onClickNew(_ sender: UIButton) {
         newCount += 1
         let prof = "new\(newCount)"
-        let ani = ValueAnimator.animate(prof, from: 0, to: 100, duration: 3.0)
+        // 애니메이터 등록은 비동기로 처리되어 생성 직후의 ValueAnimator.count 에는 아직 반영되지 않는다.
+        // 프레임마다 갱신해 등록된 이후의 개수가 바로 보이도록 한다.
+        let ani = ValueAnimator.animate(prof, from: 0, to: 100, duration: 3.0) { [weak self] _, _ in
+            self?.updateRemainedCount()
+        }
         ani.endCallback = {
             print("finished \(prof)")
             self.updateRemainedCount()
