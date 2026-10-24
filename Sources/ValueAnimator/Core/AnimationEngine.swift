@@ -28,9 +28,11 @@ actor AnimationEngine {
     func add(_ ani: ValueAnimator) {
         animations.insert(ani)
         animationCount.store(animations.count)
+        #if DEBUG
         if ValueAnimator.debug {
             print("ValueAnimator -----------: aniList added id: \(ani.hashValue)")
         }
+        #endif
         startDriverIfNeeded()
     }
 
@@ -198,9 +200,11 @@ actor AnimationEngine {
     private func stopDriver() {
         driver?.stop()
         driver = nil
+        #if DEBUG
         if ValueAnimator.debug {
             print("ValueAnimator nothing to animate")
         }
+        #endif
     }
 
     private func stopDriverIfEmpty() {
