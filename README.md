@@ -109,8 +109,8 @@ Task {
 
 ## Example
 
-To run the example project, clone the repo, and run **open ValueAnimator.xcworkspace**. 
-You can see ValueAnimatorExample project.
+To run the example project, clone the repo, and run **open ValueAnimatorExample/ValueAnimatorExample.xcodeproj**. 
+The example uses the local package, so changes in `Sources` are reflected immediately.
 
 ## Requirements
 
