@@ -78,9 +78,11 @@ public class ValueAnimator: Hashable, @unchecked Sendable {
     /// animated count
     public internal(set) var counted: Int = 0 {
         didSet {
+            #if DEBUG
             if ValueAnimator.debug {
                 print("ValueAnimator- \(props)-- counted: \(counted)")
             }
+            #endif
         }
     }
     private lazy var easingCapture: Easing = EaseSine.easeInOut()
